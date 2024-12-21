@@ -21,7 +21,7 @@ export function createDotsBackground(canvas, width, height, config = {}) {
 
   function flashDot(dot) {
     const originalSize = dot.size;
-    dot.size = originalSize * 2; // Flash size multiplier
+    dot.size = originalSize * 0.5; // Flash size multiplier
     const flashColor = "#f508e9"; // Bright yellow for flash
 
     ctx.beginPath();

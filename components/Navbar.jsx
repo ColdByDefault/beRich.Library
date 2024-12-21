@@ -3,23 +3,32 @@
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { signIn, signOut,  getProviders } from "next-auth/react";
 import { createDotsBackground } from "@utils/backgroundDots";
 
 
 
 const Navbar = () => {
   const canvasRef = useRef(null);
+  const isLoggedIn = true;
+  const [providers, serProviders] = useState(null);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
+
 
   useEffect(() => {
+    /* SignIn Providers */
+    const setProviders = async () => {
+      const response = await getProviders();
+      serProviders(response);
+    }
+    setProviders();
+
+    /* Background Canvas */
     const canvas = canvasRef.current;
     const navbar = canvas.parentNode;
-
     canvas.width = navbar.offsetWidth;
     canvas.height = navbar.offsetHeight;
-
     createDotsBackground(canvas, canvas.width, canvas.height);
-
     const handleResize = () => {
       canvas.width = navbar.offsetWidth;
       canvas.height = navbar.offsetHeight;
@@ -31,38 +40,87 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-evenly w-full p-3 bg-black relative z-10">
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full pointer-events-none z-0"
+      <nav className="flex justify-between w-full p-3 bg-black relative z-10">
+        <canvas ref={canvasRef}
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
         ></canvas>
-        <Link href="/" className="flex gap-2 flex-center z-10">
-          <Image
-            src="/assets/images/logo2.png"
+        <Link href="/" className="flex gap-2 flex-center z-10 justify-center items-center">
+          <Image src="/assets/images/logo2.png"
             alt="beRichHub Logo"
             width={100}
-            height={100}
-          />
-          <p className="hidden lg:block font-semibold text-white">.Library</p>
+            height={100}/>
+          <p className="hidden lg:block text-white text-[10px]">.Library V.3.2.1</p>
         </Link>
         <div className="sm:flex hidden z-10">
-          <div className="flex gap-3 md:gap-5">
-            <Link href="/" className="rounded-full border text-white px-2 font-semibold hover:bg-white hover:text-black">
-              Home
-            </Link>
-            <Link href="/dashboard" className="rounded-full border text-white px-2 font-semibold hover:bg-white hover:text-black">
-              Dashboard
-            </Link>
-            <Link href="/docs" className="rounded-full border text-white px-2 font-semibold hover:bg-white hover:text-black">
-              Docs
-            </Link>
-            <Link href="/gfn" className="rounded-full border text-white px-2 font-semibold hover:bg-white hover:text-black">
-              GFN+
-            </Link>
-            <Link href="/logout" className="rounded-full border text-white px-2 font-semibold hover:bg-white hover:text-black">
-              Logout
-            </Link>
+          <div className="flex gap-3 md:gap-5 justify-center items-center">
+            {isLoggedIn ? (
+              <>
+                <Link href="/" className="black-btn rounded-full">Home</Link>
+                <Link href="/dashboard" className="black-btn rounded-full">Dashboard</Link>
+                <Link href="/docs" className="black-btn rounded-full">Docs</Link>
+                <Link href="/gfn" className="black-btn rounded-full">GFN+</Link>
+                <Link href="/profile">
+                  <Image src="/assets/images/profile.svg"
+                      alt="profile"
+                      width={30}
+                      height={30}
+                      className="rounded-full"/>
+                </Link>
+                <button href="/logout" type="button"
+                onClick={signOut}
+                className="black-btn black-btn2 rounded-full">Logout</button>
+              </>
+            ) : (
+              <>
+                <Link className="black-btn rounded-full">Home</Link>
+                {providers && Object.values(providers).map((provider) => (	
+                    <button type="button"
+                    key={provider.name}
+                    onClick={() => signIn(provider.id)}
+                    className="black-btn rounded-full">
+                      Sign In 
+                    </button>
+                ))}
+              </>
+            )};
           </div>
+        </div>
+        {/* Mobile Device */}
+        <div className="sm:hidden flex relative">
+          {isLoggedIn ? (
+            <div className="flex">
+              <Image src="/assets/images/profile.svg"
+              alt="profile"
+              width={30}
+              height={30}
+              onClick={() => setToggleDropdown((prev) => !prev)}
+              className="rounded-full"/>
+              {toggleDropdown && (
+                <div className="absolute top-10 right-0 bg-black p-2 flex flex-col gap-2">
+                  <Link href="/" className="black-btn rounded-full">Home</Link>
+                  <Link href="/dashboard" className="black-btn text-white rounded-full">Dashboard</Link>
+                  <Link href="/docs" className="black-btn text-white rounded-full">Docs</Link>
+                  <Link href="/gfn" className="black-btn text-white rounded-full">GFN+</Link>
+                  <Link href="/profile" className="black-btn text-white rounded-full">Profile</Link>
+                  <button href="/logout" type="button"
+                  onClick={signOut}
+                  className="black-btn black-btn2 rounded-full text-left">Logout</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <Link className="black-btn rounded-full">Home</Link>
+              {providers && Object.values(providers).map((provider) => (	
+                  <button type="button"
+                  key={provider.name}
+                  onClick={() => signIn(provider.id)}
+                  className="black-btn rounded-full">
+                    Sign In 
+                  </button>
+              ))}
+            </>
+          )}
         </div>
       </nav>
     </>

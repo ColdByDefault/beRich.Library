@@ -7,7 +7,7 @@ const Intro = () => {
         <div className="text-black text-center z-20">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4" style={{ transform: "translateZ(20px)" }}>
             beRich<span className="text-blue-800">Hub</span><span className="text-sm">NEXT.JS</span><br />
-            <span className="text-blue-800">&#123;Digital Library&#125;</span>
+            &#123;<span className="text-blue-800">Digital Library</span>&#125;
           </h1>
           <p className="text-black text-sm mb-6 max-w-2xl mx-auto" style={{ textShadow: "0px 2px 10px #5b7080f1" }}>
             {/* translate */}

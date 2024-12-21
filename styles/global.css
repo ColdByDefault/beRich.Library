@@ -2,19 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Note: inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
+/* Root */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
+/* Body and main in app/layout.js */
 body {
   background: linear-gradient(35deg, #d7f5fc 50%, #c7e7fc 50%);
 }
-
 .main:after {
   content: "";
   background-image: url("/assets/images/grid.svg");
@@ -26,25 +23,47 @@ body {
   opacity: 0.4;
   filter: invert(1);
 }
-
 /* Navbar btns (Link) */
 .black-btn{
-  border-radius: 20%;
-  border: 1px solid #fff;
   color: white;
   padding: 0 .5rem 0;
 }
 .black-btn:hover{
-  background-color: #fff;
-  color: #000;
+  position: relative;
+  outline: none;
+  background-color: #1e40af;
+  color: #fff;
+  font-family: inherit;
+  z-index: 0;
+  overflow: hidden;
 }
-
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
+.black-btn::before,
+.black-btn::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: #fff;
+  opacity: 0;
+  z-index: -1;
 }
-
+.black-btn:hover::before,
+.black-btn:hover::after {
+  opacity: 0.15;
+  transition: all 0.6s;
+}
+.black-btn:hover::before {
+  transform: translate3d(50%, 0, 0);
+}
+.black-btn:hover::after {
+  transform: translate(50%, 0);
+}
+.black-btn2:hover{
+  background-color: #c2414c;
+}
 
 .test-colors{
   color: #f508e9;
