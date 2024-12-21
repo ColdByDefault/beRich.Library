@@ -10,8 +10,26 @@
 }
 /* Body and main in app/layout.js */
 body {
-  background: linear-gradient(35deg, #d7f5fc 50%, #c7e7fc 50%);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #d8e8ff, #f0f8ff);
 }
+body::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 50vw;
+  height: 50vh;
+  background: linear-gradient(to right, rgba(0, 0, 255, 0.1), rgba(255, 255, 255, 0));
+  transform: rotate(45deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .main:after {
   content: "";
   background-image: url("/assets/images/grid.svg");

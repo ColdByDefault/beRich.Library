@@ -56,8 +56,8 @@ const Navbar = () => {
           <div className="flex gap-3 md:gap-5 justify-center items-center">
             {session?.user ? (
               <>
-                <Link href="/" className="black-btn rounded-full">Home</Link>
-                <Link href="/" className="black-btn rounded-full">Dashboard</Link>
+                <Link href="/" className="black-btn rounded-full">Startseite</Link>
+                <Link href="/create-prompt" className="black-btn rounded-full">Dashboard</Link>
                 <Link href="/" className="black-btn rounded-full">Docs</Link>
                 <Link href="/" className="black-btn rounded-full">GFN+</Link>
                 <Link href="/">
@@ -69,7 +69,7 @@ const Navbar = () => {
                 </Link>
                 <button type="button"
                 onClick={signOut}
-                className="black-btn black-btn2 rounded-full">Logout</button>
+                className="black-btn black-btn2 rounded-full">Abmelden</button>
               </>
             ) : (
               <>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     key={provider.name}
                     onClick={() => signIn('google', { callbackUrl: '/' })}
                     className="black-btn rounded-full">
-                      Sign In 
+                      Anmelden 
                     </button>
                 ))}
               </>
@@ -98,14 +98,14 @@ const Navbar = () => {
               className="rounded-full"/>
               {toggleDropdown && (
                 <div className="absolute top-10 right-0 bg-black p-2 flex flex-col gap-2">
-                  <Link href="/" className="black-btn rounded-full">Home</Link>
-                  <Link href="/" className="black-btn text-white rounded-full">Dashboard</Link>
+                  <Link href="/" className="black-btn rounded-full">Startseite</Link>
+                  <Link href="/create-prompt" className="black-btn text-white rounded-full">Dashboard</Link>
                   <Link href="/" className="black-btn text-white rounded-full">Docs</Link>
                   <Link href="/" className="black-btn text-white rounded-full">GFN+</Link>
                   <Link href="/" className="black-btn text-white rounded-full">Profile</Link>
                   <button type="button"
                   onClick={signOut}
-                  className="black-btn black-btn2 rounded-full text-left">Logout</button>
+                  className="black-btn black-btn2 rounded-full text-left">Abmelden</button>
                 </div>
               )}
             </div>

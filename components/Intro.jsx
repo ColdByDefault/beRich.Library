@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = () => {
   return (
-    <section className="flex-center flex-col mt-48 ">
+    <section className="flex-center flex-col mt-48">
       <div className="relative flex items-center justify-center">
         <div className="text-black text-center z-20">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4" style={{ transform: "translateZ(20px)" }}>
