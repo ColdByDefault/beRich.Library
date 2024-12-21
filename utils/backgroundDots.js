@@ -1,31 +1,62 @@
-export function createAnimatedDots(container) {
-    const dotCount = 100;
-    const sizes = [0.4, 0.6, 0.8]; // Possible sizes for dots
-    const dots = [];
-  
-    // Create dots and append to the container
-    for (let i = 0; i < dotCount; i++) {
-      const dot = document.createElement('div');
-      const size = sizes[Math.floor(Math.random() * sizes.length)];
-  
-      dot.style.position = 'absolute';
-      dot.style.width = `${size}rem`;
-      dot.style.height = `${size}rem`;
-      dot.style.backgroundColor = '#fff';
-      dot.style.borderRadius = '50%';
-      dot.style.top = `${Math.random() * 100}%`;
-      dot.style.left = `${Math.random() * 100}%`;
-      dot.style.transition = 'transform 2s ease-in-out';
-  
-      dots.push(dot);
-      container.appendChild(dot);
-    }
-  
-    // Animate dots
-    setInterval(() => {
-      dots.forEach((dot) => {
-        dot.style.transform = `translate(${Math.random() * 20 - 10}px, ${Math.random() * 20 - 10}px)`;
-      });
-    }, 2000);
+// backgroundDots.js 
+
+export function createDotsBackground(canvas, width, height, config = {}) {
+  const ctx = canvas.getContext("2d");
+
+  // Configuration with defaults
+  const {
+    dotCount = 100, // Number of dots
+    dotSizes = [0.2, 0.4, 0.6], // Array of dot sizes
+    speedFactor = 0.4, // Speed multiplier for movement
+  } = config;
+
+  const dots = Array.from({ length: dotCount }).map(() => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    size: dotSizes[Math.floor(Math.random())],
+    depth: Math.random(), // Depth for layering (0 to 1)
+    dx: (Math.random() - 0.5) * speedFactor,
+    dy: (Math.random() - 0.5) * speedFactor,
+  }));
+
+  function flashDot(dot) {
+    const originalSize = dot.size;
+    dot.size = originalSize * 2; // Flash size multiplier
+    const flashColor = "#f508e9"; // Bright yellow for flash
+
+    ctx.beginPath();
+    ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
+    ctx.fillStyle = flashColor;
+    ctx.fill();
+
+    setTimeout(() => {
+      dot.size = originalSize; // Reset size after flash
+    }, 300);
+  }
+
+  setInterval(() => {
+    const randomDot = dots[Math.floor(Math.random() * dots.length)];
+    flashDot(randomDot);
+  }, 300);
+
+  function update() {
+    ctx.clearRect(0, 0, width, height);
+
+    dots.forEach((dot) => {
+      dot.x += dot.dx;
+      dot.y += dot.dy;
+
+      if (dot.x < 0 || dot.x > width) dot.dx *= -1;
+      if (dot.y < 0 || dot.y > height) dot.dy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(58, 167, 194, ${1 - dot.depth})`; // Depth affects opacity
+      ctx.fill();
+    });
+
+    requestAnimationFrame(update);
+  }
+
+  update();
 }
-  
