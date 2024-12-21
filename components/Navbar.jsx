@@ -3,14 +3,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut,  getProviders } from "next-auth/react";
+import { signIn, signOut,  getProviders, useSession } from "next-auth/react";
 import { createDotsBackground } from "@utils/backgroundDots";
 
 
 
 const Navbar = () => {
   const canvasRef = useRef(null);
-  const isLoggedIn = true;
+  const { data: session } = useSession();
   const [providers, serProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -40,11 +40,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between w-full p-3 bg-black relative z-10">
+      <nav className="flex sm:flex-row justify-between 
+      sm:justify-evenly w-full p-3 bg-black relative z-10">
         <canvas ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
         ></canvas>
-        <Link href="/" className="flex gap-2 flex-center z-10 justify-center items-center">
+        <Link href="/" className="flex gap-2 flex-center z-10 justify-center items-center ml-8">
           <Image src="/assets/images/logo2.png"
             alt="beRichHub Logo"
             width={100}
@@ -53,30 +54,30 @@ const Navbar = () => {
         </Link>
         <div className="sm:flex hidden z-10">
           <div className="flex gap-3 md:gap-5 justify-center items-center">
-            {isLoggedIn ? (
+            {session?.user ? (
               <>
                 <Link href="/" className="black-btn rounded-full">Home</Link>
-                <Link href="/dashboard" className="black-btn rounded-full">Dashboard</Link>
-                <Link href="/docs" className="black-btn rounded-full">Docs</Link>
-                <Link href="/gfn" className="black-btn rounded-full">GFN+</Link>
-                <Link href="/profile">
-                  <Image src="/assets/images/profile.svg"
+                <Link href="/" className="black-btn rounded-full">Dashboard</Link>
+                <Link href="/" className="black-btn rounded-full">Docs</Link>
+                <Link href="/" className="black-btn rounded-full">GFN+</Link>
+                <Link href="/">
+                  <Image src={session?.user.image}
                       alt="profile"
                       width={30}
                       height={30}
                       className="rounded-full"/>
                 </Link>
-                <button href="/logout" type="button"
+                <button type="button"
                 onClick={signOut}
                 className="black-btn black-btn2 rounded-full">Logout</button>
               </>
             ) : (
               <>
-                <Link className="black-btn rounded-full">Home</Link>
+                <Link href="/" className="black-btn rounded-full">Home</Link>
                 {providers && Object.values(providers).map((provider) => (	
                     <button type="button"
                     key={provider.name}
-                    onClick={() => signIn(provider.id)}
+                    onClick={() => signIn('google', { callbackUrl: '/' })}
                     className="black-btn rounded-full">
                       Sign In 
                     </button>
@@ -87,9 +88,9 @@ const Navbar = () => {
         </div>
         {/* Mobile Device */}
         <div className="sm:hidden flex relative">
-          {isLoggedIn ? (
+          {session?.user ? (
             <div className="flex">
-              <Image src="/assets/images/profile.svg"
+              <Image src={session?.user.image}
               alt="profile"
               width={30}
               height={30}
@@ -98,11 +99,11 @@ const Navbar = () => {
               {toggleDropdown && (
                 <div className="absolute top-10 right-0 bg-black p-2 flex flex-col gap-2">
                   <Link href="/" className="black-btn rounded-full">Home</Link>
-                  <Link href="/dashboard" className="black-btn text-white rounded-full">Dashboard</Link>
-                  <Link href="/docs" className="black-btn text-white rounded-full">Docs</Link>
-                  <Link href="/gfn" className="black-btn text-white rounded-full">GFN+</Link>
-                  <Link href="/profile" className="black-btn text-white rounded-full">Profile</Link>
-                  <button href="/logout" type="button"
+                  <Link href="/" className="black-btn text-white rounded-full">Dashboard</Link>
+                  <Link href="/" className="black-btn text-white rounded-full">Docs</Link>
+                  <Link href="/" className="black-btn text-white rounded-full">GFN+</Link>
+                  <Link href="/" className="black-btn text-white rounded-full">Profile</Link>
+                  <button type="button"
                   onClick={signOut}
                   className="black-btn black-btn2 rounded-full text-left">Logout</button>
                 </div>
@@ -110,7 +111,7 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link className="black-btn rounded-full">Home</Link>
+              <Link href="/" className="black-btn rounded-full">Home</Link>
               {providers && Object.values(providers).map((provider) => (	
                   <button type="button"
                   key={provider.name}
