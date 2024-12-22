@@ -12,7 +12,8 @@ https://linktr.ee/ColdByDefault
 Unauthorized use, modification, or redistribution of any part of this project is strictly prohibited and will be subject to legal action.
 
 **Owner**: [ColdByDefault]  
-**Year**: [2024]  */
+**Year**: [2024]  
+*/
 import React from 'react';
 import '@styles/global.css';
 import Navbar from '@components/Navbar';
