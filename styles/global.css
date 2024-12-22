@@ -33,7 +33,6 @@ body::before {
 .main:after {
   content: "";
   background-image: url("/assets/images/grid.svg");
-  z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -85,4 +84,5 @@ body::before {
 
 .test-colors{
   color: #f508e9;
+  color: rgba(54, 82, 240, 0.2);
 }
