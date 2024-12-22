@@ -46,7 +46,7 @@ const Navbar = () => {
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
         ></canvas>
         <Link href="/" className="flex gap-2 flex-center z-10 justify-center items-center ml-8">
-          <Image src="/assets/images/logo2.png"
+          <Image src="/assets/images/logo.png"
             alt="beRichHub Logo"
             width={100}
             height={100}/>
@@ -56,10 +56,10 @@ const Navbar = () => {
           <div className="flex gap-3 md:gap-5 justify-center items-center">
             {session?.user ? (
               <>
-                <Link href="/" className="black-btn rounded-full">Startseite</Link>
-                <Link href="/create-prompt" className="black-btn rounded-full">Dashboard</Link>
-                <Link href="/" className="black-btn rounded-full">Docs</Link>
-                <Link href="/" className="black-btn rounded-full">GFN+</Link>
+                <Link href="/" className="navbar-btn rounded-full">Startseite</Link>
+                <Link href="/create-prompt" className="navbar-btn rounded-full">AI Prompts</Link>
+                <Link href="/" className="navbar-btn rounded-full">Docs</Link>
+                <Link href="/" className="navbar-btn rounded-full">GFN+</Link>
                 <Link href="/">
                   <Image src={session?.user.image}
                       alt="profile"
@@ -69,16 +69,16 @@ const Navbar = () => {
                 </Link>
                 <button type="button"
                 onClick={signOut}
-                className="black-btn black-btn2 rounded-full">Abmelden</button>
+                className="navbar-btn navbar-btn2 rounded-full">Abmelden</button>
               </>
             ) : (
               <>
-                <Link href="/" className="black-btn rounded-full">Home</Link>
+                <Link href="/" className="navbar-btn rounded-full">Home</Link>
                 {providers && Object.values(providers).map((provider) => (	
                     <button type="button"
                     key={provider.name}
                     onClick={() => signIn('google', { callbackUrl: '/' })}
-                    className="black-btn rounded-full">
+                    className="navbar-btn rounded-full">
                       Anmelden 
                     </button>
                 ))}
@@ -102,27 +102,27 @@ const Navbar = () => {
               <div className="absolute right-0 top-full flex flex-col 
               justify-center items-center gap-2 w-full 
             bg-black/50 backdrop-blur-sm shadow-lg p-4">
-                <Link href="/" className="black-btn rounded-full" onClick={() => 
+                <Link href="/" className="navbar-btn rounded-full" onClick={() => 
                   setToggleDropdown(false)}>
                   Startseite
                 </Link>
-                <Link href="/create-prompt" className="black-btn text-white rounded-full"
+                <Link href="/create-prompt" className="navbar-btn text-white rounded-full"
                   onClick={() => setToggleDropdown(false)}>
                   Dashboard
                 </Link>
-                <Link href="/" className="black-btn text-white rounded-full" onClick={() => 
+                <Link href="/" className="navbar-btn text-white rounded-full" onClick={() => 
                   setToggleDropdown(false)}>
                   Docs
                 </Link>
-                <Link href="/" className="black-btn text-white rounded-full" onClick={() => 
+                <Link href="/" className="navbar-btn text-white rounded-full" onClick={() => 
                   setToggleDropdown(false)}>
                   GFN+
                 </Link>
-                <Link href="/" className="black-btn text-white rounded-full" onClick={() => 
+                <Link href="/" className="navbar-btn text-white rounded-full" onClick={() => 
                   setToggleDropdown(false)}>
                   Profile
                 </Link>
-                <button className="black-btn black-btn2 rounded-full text-left"
+                <button className="navbar-btn navbar-btn2 rounded-full text-left"
                   type="button"
                   onClick={() => {
                     signOut();
@@ -135,7 +135,7 @@ const Navbar = () => {
         </div>
           ) : (
             <>
-              <Link href="/" className="black-btn rounded-full" onClick={() => setToggleDropdown(false)}>
+              <Link href="/" className="navbar-btn rounded-full" onClick={() => setToggleDropdown(false)}>
                 Home
               </Link>
               {providers &&
@@ -147,7 +147,7 @@ const Navbar = () => {
                       signIn(provider.id);
                       setToggleDropdown(false);
                     }}
-                    className="black-btn rounded-full"
+                    className="navbar-btn rounded-full"
                   >
                     Sign In
                   </button>

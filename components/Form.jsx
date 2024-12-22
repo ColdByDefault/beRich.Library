@@ -44,6 +44,16 @@ const Form = ({
             className='w-full flex rounded-lg mt-2 p-3 text-sm 
             text-gray-500'/>
           </label>
+          <div className='flex justify-end mx-3 mb-5 hap-4'>
+            <Link href="/"
+            className='submitt-btn cancel-btn'>
+              Abbrechen
+            </Link>
+            <button type='submit' disabled={submitting}
+            className='submitt-btn px-2 mx-4'>
+              {submitting ? `{type}...` : type}
+            </button>
+          </div>
         </form>
     </section>
   )
