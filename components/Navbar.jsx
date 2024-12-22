@@ -91,7 +91,7 @@ const Navbar = () => {
                   Sign In
                 </button>
                 {showProviderDropdown && providers && (
-                  <div className="absolute bg-white shadow-md rounded-md p-4">
+                  <div className="absolute top-14 bg-white shadow-md rounded-md p-4">
                     {Object.values(providers).map((provider) => (
                       <button
                         key={provider.name}
