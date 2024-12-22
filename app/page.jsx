@@ -3,10 +3,11 @@ import Intro from '@components/Intro';
 
 
 const Home = () => {
+  
   return (
     <>
       <section>  
-        <Intro />
+          <Intro />
       </section>
     </>
   );

@@ -61,8 +61,8 @@ const Navbar = () => {
               <>
                 <Link href="/" className="navbar-btn rounded-full">Startseite</Link>
                 <Link href="/create-prompt" className="navbar-btn rounded-full">AI Prompts</Link>
-                <Link href="/" className="navbar-btn rounded-full">Docs</Link>
-                <Link href="/" className="navbar-btn rounded-full">GFN+</Link>
+                <Link href="/docs" className="navbar-btn rounded-full">Docs</Link>
+                <Link href="/gfn" className="navbar-btn rounded-full">GFN+</Link>
                 <Link href="/">
                   <Image
                     src={session?.user.image}
@@ -130,14 +130,14 @@ const Navbar = () => {
                     href="/create-prompt"
                     className="navbar-btn text-white rounded-full"
                     onClick={() => setToggleDropdown(false)}>
-                    Dashboard
+                    AI Prompts
                   </Link>
-                  <Link href="/"
+                  <Link href="/docs"
                     className="navbar-btn text-white rounded-full"
                     onClick={() => setToggleDropdown(false)}>
                     Docs
                   </Link>
-                  <Link href="/"
+                  <Link href="/gfn"
                     className="navbar-btn text-white rounded-full"
                     onClick={() => setToggleDropdown(false)}>
                     GFN+

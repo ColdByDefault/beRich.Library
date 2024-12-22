@@ -23,18 +23,18 @@ body::before {
   top: 20%;
   left: 10%;
   width: 50vw;
-  height: 50vh;
+  height: 100vh;
   background: linear-gradient(to right, rgba(0, 0, 255, 0.1), rgba(255, 255, 255, 0));
   transform: rotate(45deg);
-  z-index: 1;
   pointer-events: none;
 }
 .main:after {
   content: "";
   background-image: url("/assets/images/grid.svg");
   position: absolute;
+  background-repeat: repeat;
   width: 100%;
-  height: 100%;
+  height: 135vh;
   top: 0;
   opacity: 0.4;
   filter: invert(1);

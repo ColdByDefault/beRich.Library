@@ -12,7 +12,7 @@ const Form = ({
   handleSubmit,
 }) => {
   return (
-    <section className='relative flex w-full max-w-full flex-col
+    <section className='relative flex w-full max-w-full flex-col min-h-screen
     justify-center items-center gap-4 mt-12'>
       <Feed />
         <h1 className='text-2xl font-bold text-blue-700'>
