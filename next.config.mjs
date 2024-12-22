@@ -12,10 +12,14 @@ const nextConfig = {
         port: '', // Leave empty if no specific port is required
         pathname: '/**', // Match all paths
       },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '', // Leave empty if no specific port is required
+        pathname: '/**', // Match all paths
+      },
     ],
   },
 };
-  
-export default nextConfig;
 
-  
+export default nextConfig;
