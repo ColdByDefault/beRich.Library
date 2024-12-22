@@ -5,7 +5,7 @@ import PromptCard from './PromptCard'
 
 const PromptCardList = ({ data, handleTagClick }) => {
     return (
-        <div className='mt-16 space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3'>
+        <div className='mt-16 flex gap-4 '>
             {data.map((post) => (
                 <PromptCard key={post._id} post={post}
                 handleTagClick={handleTagClick}/>
@@ -21,6 +21,7 @@ const Feed = () => {
     const handleSearchChange = (e) => {
         setSearchText(e.target.value)
     }
+    
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -33,7 +34,7 @@ const Feed = () => {
 
     return (
         <section className='flex flex-col gap-4'>
-            <form>
+{/*             <form>
                 <div>
                     <input type="text"
                     placeholder="Search for a tag or username"
@@ -56,7 +57,7 @@ const Feed = () => {
                     ></path>
                     </svg>
                 </div>
-            </form>
+            </form> */}
             <div>
                 <PromptCardList data={posts}
                 handleTagClick={() => {}}/>

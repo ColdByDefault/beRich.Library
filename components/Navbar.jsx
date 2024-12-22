@@ -72,11 +72,9 @@ const Navbar = () => {
                     className="rounded-full"
                   />
                 </Link>
-                <button
-                  type="button"
+                <button type="button"
                   onClick={signOut}
-                  className="navbar-btn navbar-btn2 rounded-full"
-                >
+                  className="navbar-btn navbar-btn2 rounded-full">
                   Abmelden
                 </button>
               </>
@@ -96,8 +94,7 @@ const Navbar = () => {
                       <button
                         key={provider.name}
                         onClick={() => signIn(provider.id)}
-                        className="block w-full text-left p-2 hover:bg-gray-200 rounded-md"
-                      >
+                        className="block w-full text-left p-2 hover:bg-gray-200 rounded-md">
                         {provider.name}
                       </button>
                     ))}
@@ -123,51 +120,39 @@ const Navbar = () => {
                 <div
                   className="absolute right-0 top-full flex flex-col 
               justify-center items-center gap-2 w-full 
-            bg-black/50 backdrop-blur-sm shadow-lg p-4"
-                >
-                  <Link
-                    href="/"
+            bg-black/50 backdrop-blur-sm shadow-lg p-4">
+                  <Link href="/"
                     className="navbar-btn rounded-full"
-                    onClick={() => setToggleDropdown(false)}
-                  >
+                    onClick={() => setToggleDropdown(false)}>
                     Startseite
                   </Link>
                   <Link
                     href="/create-prompt"
                     className="navbar-btn text-white rounded-full"
-                    onClick={() => setToggleDropdown(false)}
-                  >
+                    onClick={() => setToggleDropdown(false)}>
                     Dashboard
                   </Link>
-                  <Link
-                    href="/"
+                  <Link href="/"
                     className="navbar-btn text-white rounded-full"
-                    onClick={() => setToggleDropdown(false)}
-                  >
+                    onClick={() => setToggleDropdown(false)}>
                     Docs
                   </Link>
-                  <Link
-                    href="/"
+                  <Link href="/"
                     className="navbar-btn text-white rounded-full"
-                    onClick={() => setToggleDropdown(false)}
-                  >
+                    onClick={() => setToggleDropdown(false)}>
                     GFN+
                   </Link>
-                  <Link
-                    href="/"
+                  <Link href="/"
                     className="navbar-btn text-white rounded-full"
-                    onClick={() => setToggleDropdown(false)}
-                  >
+                    onClick={() => setToggleDropdown(false)} >
                     Profile
                   </Link>
-                  <button
-                    className="navbar-btn navbar-btn2 rounded-full text-left"
+                  <button className="navbar-btn navbar-btn2 rounded-full text-left"
                     type="button"
                     onClick={() => {
                       signOut();
                       setToggleDropdown(false);
-                    }}
-                  >
+                    }} >
                     Abmelden
                   </button>
                 </div>
@@ -175,18 +160,14 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link
-                href="/"
+              <Link href="/"
                 className="navbar-btn rounded-full"
-                onClick={() => setToggleDropdown(false)}
-              >
+                onClick={() => setToggleDropdown(false)}>
                 Home
               </Link>
-              <button
-                type="button"
+              <button type="button"
                 className="navbar-btn rounded-full"
-                onClick={() => setShowProviderDropdown(!showProviderDropdown)}
-              >
+                onClick={() => setShowProviderDropdown(!showProviderDropdown)}>
                 Sign In
               </button>
               {showProviderDropdown && providers && (
@@ -195,8 +176,7 @@ const Navbar = () => {
                     <button
                       key={provider.name}
                       onClick={() => signIn(provider.id)}
-                      className="block w-full text-left p-2 hover:bg-gray-200 rounded-md"
-                    >
+                      className="block w-full text-left p-2 hover:bg-gray-200 rounded-md" >
                       {provider.name}
                     </button>
                   ))}
