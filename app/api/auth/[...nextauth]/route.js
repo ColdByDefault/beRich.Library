@@ -6,6 +6,7 @@ import User from "@models/user";
 
 
 
+
 const handler = NextAuth({
     providers: [
         GoogleProvider({
