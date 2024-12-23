@@ -2,8 +2,9 @@ import React from 'react'
 
 const Intro = () => {
   return (
-    <section className="flex-center flex-col">
-      <div className="relative flex items-center justify-center pt-48">
+    <section className="flex flex-col h-[calc(100vh-64px-32px)] 
+    items-center justify-center">
+      <div className="relative flex items-center justify-center">
         <div className="text-white text-center">
           <h1 className="text-3xl lg:text-5xl font-bold mb-4" style={{ transform: "translateZ(20px)" }}>
             beRich<span className="text-blue-800">Hub</span><span className="text-[10px]">Built with NEXT.JS</span><br />

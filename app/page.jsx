@@ -5,12 +5,17 @@ import Intro from '@components/Intro';
 const Home = () => {
   
   return (
-    <>
-      <section>  
-          <Intro />
+      <section className='w-full'>  
+        <div className="relative left-0
+        right-0 w-full">
+            <div className="line absolute h-[92vh]"></div>
+            <div className="line absolute h-[92vh]"></div>
+            <div className="line absolute h-[92vh]"></div>
+        </div>
+        <Intro />
       </section>
-    </>
+    
   );
-};
+}
 
 export default Home;

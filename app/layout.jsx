@@ -22,12 +22,7 @@ const RootLayout = ({ children }) => {
         <html lang="de">
             <body>
                 <Provider>
-                <div className="absolute top-0 left-0
-                right-0 h-screen w-full">
-                    <div className="line"></div>
-                    <div className="line"></div>
-                    <div className="line"></div>
-                </div>
+
                     <Navbar />
                     <main>
                         {children}

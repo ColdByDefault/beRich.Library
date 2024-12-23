@@ -13,11 +13,12 @@ const Form = ({
   return (
     <section className='relative flex w-full max-w-full flex-col mb-24
     justify-center items-center gap-4 '>
-        <h1 className='text-2xl font-bold text-blue-700'>
+        <h1 className='text-2xl font-bold text-blue-700 pt-4
+        border-b-2'>
           <span>{type} Post</span>
         </h1>
         <form onSubmit={handleSubmit} 
-        className='flex flex-col gap-4 mt-10 w-full max-w-2xl
+        className='flex flex-col gap-4 mt-4 w-full max-w-2xl
         rounded-xl border border-gray-200 bg-white
         shadow-[inset_10px_-50px_94px_0_rgba(54, 82, 240, 0.2)] 
         backdrop-blur p-5'>
