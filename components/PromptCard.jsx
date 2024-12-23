@@ -6,6 +6,9 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
     const [copied, setCopied] = useState("");
+    const { data: session } = useSession();
+    const pathName = usePathname();
+
     const handleCopy = () => {
         setCopied(post.prompt);
         navigator.clipboard.writeText(post.prompt);
@@ -42,6 +45,18 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                     height={20}
                     alt='copy'></Image>
                 </div>
+                {session?.user.id === post.creator._id && pathName === '/profile' && (
+                <div className='flex gap-4 pt-2'>
+                    <p className='cursor-pointer submitt-btn submitt-btn2'
+                    onClick={handleEdit}>
+                        Edit
+                    </p>
+                    <p className='cursor-pointer submitt-btn submitt-btn2 cancel-btn'
+                    onClick={handleDelete}>
+                        Delete
+                    </p>
+                </div>
+                )}
             </div>
         </div>
     )

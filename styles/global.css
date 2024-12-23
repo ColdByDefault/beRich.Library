@@ -8,6 +8,25 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* Customize the scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+  height: 8px; /* Adjust the height of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(8, 8, 8); /* Set scrollbar color */
+  border-radius: 4px; /* Round edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0); /* Change color on hover */
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(36, 35, 35); /* Track background color */
+}
+
 /* Body and main in app/layout.js */
 body {
   margin: 0;

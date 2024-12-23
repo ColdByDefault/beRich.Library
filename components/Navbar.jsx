@@ -94,7 +94,7 @@ const Navbar = () => {
     { href: "/create-prompt", label: "AI Prompts" },
     { href: "/docs", label: "Docs" },
     { href: "/gfn", label: "GFN+" },
-/*     { href: "/profile", label: "Profile" }, */
+    { href: "/profile", label: "Profile" }, 
   ];
 
   return (

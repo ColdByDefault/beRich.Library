@@ -4,16 +4,28 @@ import PromptCard from './PromptCard'
 
 
 const PromptCardList = ({ data, handleTagClick }) => {
+    const visiblePrompts = data.slice(0, 5);
+
     return (
-        <div className='flex flex-wrap gap-4 p-4
-        align-center justify-evenly'>
-            {data.map((post) => (
-                <PromptCard key={post._id} post={post}
-                handleTagClick={handleTagClick}/>
-            ))}
+        <div className="flex flex-col gap-4">
+            <div className="flex flex-wrap gap-4 p-4
+            align-center justify-evenly">
+                {visiblePrompts.map((post) => (
+                    <PromptCard
+                        key={post._id}
+                        post={post}
+                        handleTagClick={handleTagClick}/>
+                ))}
+            </div>
+            {data.length > 1 && (
+                <div className="text-center text-gray-500">
+                    There are more prompts available...
+                    <a href="/allFeed">here</a>
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
 const Feed = () => {
     const [searchText, setSearchText] = useState('')

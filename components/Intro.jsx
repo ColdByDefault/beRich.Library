@@ -2,7 +2,7 @@ import React from 'react'
 
 const Intro = () => {
   return (
-    <section className="flex flex-col h-[calc(100vh-64px-32px)] 
+    <section className="flex flex-col h-[93vh] 
     items-center justify-center">
       <div className="relative flex items-center justify-center">
         <div className="text-white text-center">
