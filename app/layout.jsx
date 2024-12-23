@@ -1,3 +1,10 @@
+// Created by ColdByDefault on 23/12/2024
+// COPYRIGHTS 2024 ColdByDefault. All rights reserved.
+// NOT ALLOWED TO BE SHARED, COPIED, OR MODIFIED WITHOUT PERMISSION
+// AnotherProject beRich v3.2.1
+// more info: https://www.coldbydefault.com
+
+
 import React from 'react';
 import '@styles/global.css';
 import Navbar from '@components/Navbar';
@@ -26,8 +33,7 @@ const RootLayout = ({ children }) => {
                         {children}
                         <Footer />
                     </main>
-                    <CookiesBanner /> {/* Add the CookiesBanner here */}
-                    
+                    <CookiesBanner /> {/* Add the CookiesBanner here */}  
                 </Provider>
             </body>
         </html>
