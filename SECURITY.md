@@ -2,9 +2,6 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
 | Version | Supported          |
 | ------- | ------------------ |
 | 1.0.x   | :white_check_mark: |
@@ -49,6 +46,5 @@ If you discover any vulnerabilities in this project, please report them by conta
 ## Additional Information
 
 - For technical inquiries or permissions, please refer to the [README](README.md) file.
-- The project is protected under copyright and redistribution rules, as mentioned in the README.
 
 
