@@ -20,11 +20,10 @@ const Profile = ({name, desc, data, handleEdit, handleDelete}) => {
           <h1 className='text-gray-300'>My Posts</h1>
             {data.map((post) => (
                 <PromptCard key={post._id} post={post}
-                handleEdit={handleEdit && handleEdit(post)}
-                handleDelete={handleDelete && handleDelete(post)}/>
+                handleEdit={() => handleEdit && handleEdit(post)} // Pass a function reference
+                handleDelete={() => handleDelete && handleDelete(post)}/>
             ))}
       </div>
-
     </section>
   )
 }

@@ -47,14 +47,14 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                 </div>
                 {session?.user.id === post.creator._id && pathName === '/profile' && (
                 <div className='flex gap-4 pt-2'>
-                    <p className='cursor-pointer submitt-btn submitt-btn2'
-                    onClick={handleEdit}>
-                        Edit
-                    </p>
-                    <p className='cursor-pointer submitt-btn submitt-btn2 cancel-btn'
-                    onClick={handleDelete}>
-                        Delete
-                    </p>
+                <p className="cursor-pointer submitt-btn submitt-btn2"
+                onClick={() => handleEdit && handleEdit()} >
+                    Edit
+                </p>
+                <p className="cursor-pointer submitt-btn submitt-btn2 cancel-btn"
+                onClick={() => handleDelete && handleDelete()}>
+                    Delete
+                </p>
                 </div>
                 )}
             </div>

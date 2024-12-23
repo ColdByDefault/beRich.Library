@@ -11,7 +11,6 @@ const Home = () => {
             <div className="line absolute h-[92vh]"></div>
             <div className="line absolute h-[92vh]"></div>
             <div className="line absolute h-[92vh]"></div>
-            <div className="line absolute h-[92vh]"></div>
         </div>
         <Intro />
       </section>

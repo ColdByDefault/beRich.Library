@@ -60,14 +60,14 @@ body {
 }
 
 .line:nth-child(1) {
-  margin-left: -25%;
+  margin-left: -15%;
 }
 
 .line:nth-child(1)::after {
   animation-delay: .8s;
 }
 .line:nth-child(2) {
-  margin-left: -15%;
+  margin-left: 10%;
 }
 
 .line:nth-child(2)::after {
@@ -81,13 +81,7 @@ body {
 .line:nth-child(3)::after {
   animation-delay: 1.5s;
 }
-.line:nth-child(4) {
-  margin-left: 15%;
-}
 
-.line:nth-child(4)::after {
-  animation-delay: 2.5s;
-}
 
 @keyframes drop {
   0% {
