@@ -20,7 +20,7 @@ export function createDotsBackground(canvas, width, height, config = {}) {
   function flashDot(dot) {
     const originalSize = dot.size;
     dot.size = originalSize * 0.5;
-    const flashColor = "#f508e9";
+    const flashColor = "#c0c0c0b7";
 
     ctx.beginPath();
     ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
@@ -49,7 +49,7 @@ export function createDotsBackground(canvas, width, height, config = {}) {
 
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(58, 167, 194, ${1 - dot.depth})`;
+      ctx.fillStyle = `#c0c0c0b7, ${1 - dot.depth})`;
       ctx.fill();
     });
 

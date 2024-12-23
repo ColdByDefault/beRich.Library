@@ -15,7 +15,11 @@ const RootLayout = ({ children }) => {
         <html lang="de">
             <body>
                 <Provider>
-                    <div className="main"></div>
+                <div className="lines">
+                    <div className="line"></div>
+                    <div className="line"></div>
+                    <div className="line"></div>
+                </div>
                     <Navbar />
                     <main>
                         {children}
