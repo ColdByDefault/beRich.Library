@@ -7,7 +7,8 @@ const Home = () => {
   return (
       <section className='w-full'>  
         <div className="relative left-0
-        right-0 w-full">
+         w-full">
+            <div className="line absolute h-[92vh]"></div>
             <div className="line absolute h-[92vh]"></div>
             <div className="line absolute h-[92vh]"></div>
             <div className="line absolute h-[92vh]"></div>

@@ -34,9 +34,7 @@ const MyProfile = () => {
         desc='Welcome to your personalized profile page'
         data={posts}
         handleEdit={handleEdit}
-        handleDelete={handleDelete}>
-
-        </Profile>
+        handleDelete={handleDelete}/>
     )
 }
 
