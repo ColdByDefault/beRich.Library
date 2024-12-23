@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const PrivacyPolicy = () => {
     return (
-<div className='relative p-6'>
+<div className='relative p-6 text-white'>
         <h1 className="text-2xl font-bold mb-4 text-red-400">Datenschutzerklärung</h1>
         <h2 className="text-xl font-semibold mb-3">Einleitung</h2>
         <p className="mb-4">

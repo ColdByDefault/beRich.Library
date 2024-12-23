@@ -48,7 +48,7 @@ export function createDotsBackground(canvas, width, height, config = {}) {
       if (dot.y < 0 || dot.y > height) dot.dy *= -1;
 
       ctx.beginPath();
-      ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
+      ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 1);
       ctx.fillStyle = `#c0c0c0b7, ${1 - dot.depth})`;
       ctx.fill();
     });

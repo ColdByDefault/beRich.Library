@@ -14,6 +14,7 @@ const CreatePrompt = () => {
     const [post, setPost] = useState({
         prompt: '',
         tag: '',
+        title: '',
     });
 
     const createPrompt = async (e) => {
@@ -27,10 +28,12 @@ const CreatePrompt = () => {
                     prompt: post.prompt,
                     userId: session?.user.id,
                     tag: post.tag,
+                    title: post.title,
                 }),
+                
             });
 
-            if (response.ok) {
+            if (response.ok) { 
                 router.push('/');
             }
         } catch (error) {
@@ -39,11 +42,14 @@ const CreatePrompt = () => {
             setSubmitting(false);
         }
     }
+    
     return (
         <>
-            <Feed />
-            <Form type='Create' post={post} setPost={setPost} submitting={submitting}
-            handleSubmit={createPrompt}></Form>
+            <section className='relative h-full overflow-hidden'>
+                <Feed />
+                <Form type='Create' post={post} setPost={setPost} submitting={submitting}
+                handleSubmit={createPrompt}></Form>
+            </section>
         </>
     )
 }

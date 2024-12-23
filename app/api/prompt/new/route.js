@@ -3,7 +3,7 @@ import Prompt from "@models/prompt";
 
 
 export const POST = async (req, res) => {
-    const { prompt, userId, tag } = await req.json();
+    const { prompt, userId, tag, title } = await req.json();
 
     try{
         await connectToDatabase();
@@ -11,7 +11,9 @@ export const POST = async (req, res) => {
             creator: userId,
             prompt,
             tag,
+            title,
         });
+        //console.log('Payload received in API:', { prompt, userId, tag, title });
 
         await newPrompt.save();
         return new Response(JSON.stringify(newPrompt), { status: 201 });

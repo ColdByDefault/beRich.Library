@@ -15,7 +15,8 @@ const RootLayout = ({ children }) => {
         <html lang="de">
             <body>
                 <Provider>
-                <div className="lines">
+                <div className="absolute top-0 left-0
+                right-0 h-screen w-full">
                     <div className="line"></div>
                     <div className="line"></div>
                     <div className="line"></div>
@@ -23,9 +24,10 @@ const RootLayout = ({ children }) => {
                     <Navbar />
                     <main>
                         {children}
+                        <Footer />
                     </main>
                     <CookiesBanner /> {/* Add the CookiesBanner here */}
-                    <Footer /> 
+                    
                 </Provider>
             </body>
         </html>
