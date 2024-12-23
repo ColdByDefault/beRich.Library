@@ -22,7 +22,7 @@
 ### Version 2.0.0x
 - **Description**: Flask application with crypt and hashed passwords.
 - **Security Level**: Medium security.
-- **Technical Notes**: Tested on Firefox and Chrome but not responsive. Potential overwrite issues observed.
+- **Technical Notes**: Not responsive Only for Desktops, Tested on Firefox and Chrome. Potential overwrite issues observed.
 
 ### Version 3.0.0x
 - **Description**: Firebase Authentication without backend.
