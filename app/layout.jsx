@@ -21,7 +21,7 @@ const RootLayout = ({ children }) => {
                         {children}
                     </main>
                     <CookiesBanner /> {/* Add the CookiesBanner here */}
-                    <Footer />
+                    <Footer /> 
                 </Provider>
             </body>
         </html>

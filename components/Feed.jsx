@@ -34,16 +34,15 @@ const Feed = () => {
     }, []);
 
     return (
-        <section className='flex flex-col gap-4 border border-red-300 pt-4'>
+        <section className='flex flex-col gap-4 mt-12 pt-4 relative'>
              <form>
-                <div className='text-center
-                border border-green-300'>
+                <div className='text-center'>
                     <input type="text"
                     placeholder="Search for a tag or username"
                     value={searchText}
                     onChange={handleSearchChange}
                     required
-                    className='input shadow-lg border-gray-300 px-5 
+                    className='input shadow-lg border-red-300 px-5 
                     py-3 rounded-xl w-64 transition-all outline-none'/>
                     {/* <svg
                     className="size-6 text-gray-500"
@@ -60,8 +59,7 @@ const Feed = () => {
                     </svg> */}
                 </div>
             </form>
-            <div className='
-            border border-blue-300'>
+            <div className=''>
                 <PromptCardList data={posts}
                 handleTagClick={() => {}}/>
             </div>

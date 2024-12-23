@@ -1,28 +1,26 @@
-// backgroundDots.js 
-
 export function createDotsBackground(canvas, width, height, config = {}) {
   const ctx = canvas.getContext("2d");
+  let animationId; // Store the animation frame ID for control
 
-  // Configuration with defaults
   const {
-    dotCount = 100, // Number of dots
-    dotSizes = [0.2, 0.4, 0.6], // Array of dot sizes
-    speedFactor = 0.4, // Speed multiplier for movement
+    dotCount = 100,
+    dotSizes = [0.2, 0.4, 0.6],
+    speedFactor = 0.4,
   } = config;
 
   const dots = Array.from({ length: dotCount }).map(() => ({
     x: Math.random() * width,
     y: Math.random() * height,
     size: dotSizes[Math.floor(Math.random())],
-    depth: Math.random(), // Depth for layering (0 to 1)
+    depth: Math.random(),
     dx: (Math.random() - 0.5) * speedFactor,
     dy: (Math.random() - 0.5) * speedFactor,
   }));
 
   function flashDot(dot) {
     const originalSize = dot.size;
-    dot.size = originalSize * 0.5; // Flash size multiplier
-    const flashColor = "#f508e9"; // Bright yellow for flash
+    dot.size = originalSize * 0.5;
+    const flashColor = "#f508e9";
 
     ctx.beginPath();
     ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
@@ -30,7 +28,7 @@ export function createDotsBackground(canvas, width, height, config = {}) {
     ctx.fill();
 
     setTimeout(() => {
-      dot.size = originalSize; // Reset size after flash
+      dot.size = originalSize;
     }, 300);
   }
 
@@ -51,12 +49,26 @@ export function createDotsBackground(canvas, width, height, config = {}) {
 
       ctx.beginPath();
       ctx.arc(dot.x, dot.y, dot.size * 5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(58, 167, 194, ${1 - dot.depth})`; // Depth affects opacity
+      ctx.fillStyle = `rgba(58, 167, 194, ${1 - dot.depth})`;
       ctx.fill();
     });
 
-    requestAnimationFrame(update);
+    animationId = requestAnimationFrame(update); // Store the frame ID
   }
 
-  update();
+  function start() {
+    if (!animationId) {
+      update();
+    }
+  }
+
+  function stop() {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+
+  // Start animation initially
+  start();
+
+  return { start, stop };
 }

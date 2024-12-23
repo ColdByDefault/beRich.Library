@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link'
-import Feed from './Feed'
 
 
 
@@ -12,9 +11,8 @@ const Form = ({
   handleSubmit,
 }) => {
   return (
-    <section className='relative flex w-full max-w-full flex-col min-h-screen
-    justify-center items-center gap-4 mt-12'>
-      <Feed />
+    <section className='relative flex w-full max-w-full flex-col mb-24
+    justify-center items-center gap-4 '>
         <h1 className='text-2xl font-bold text-blue-700'>
           <span>{type} Post</span>
         </h1>
