@@ -4,7 +4,7 @@ import SidebarNav from '@components/sidebar-nav';
 
 export default function DocsLayout({ children }) {
   return (
-    <div className="min-h-screen bg-transparent text-white">
+    <div className="h-screen bg-transparent text-white">
       <div className="flex">
         <SidebarNav />
         <main className="flex-1 p-8 overflow-y-auto h-screen scroll-smooth">

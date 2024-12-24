@@ -5,16 +5,7 @@ const navItems = [
       {
         title: "Starters",
         items: [
-          { title: "Overview", href: "/docs/overview" },
-          {
-            title: "Subjects",
-            items: [
-              { title: "Basic Knowledge", href: "" },
-              { title: "Algorithms", href: "/docs/algorithms" },
-              { title: "Databases", href: "" },
-              { title: "APIs", href: "" },
-            ],
-          },
+          { title: "Algorithms", href: "/docs/algorithms"},
         ],
       },
       {
