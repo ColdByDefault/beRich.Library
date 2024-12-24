@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PromptCard from './PromptCard'
-
+import Link from 'next/link';
 
 
 const PromptCardList = ({ data, handleTagClick }) => {
@@ -20,7 +20,12 @@ const PromptCardList = ({ data, handleTagClick }) => {
             {data.length > 1 && (
                 <div className="text-center text-gray-500">
                     There are more prompts available...
-                    <a href="/allFeed">here</a>
+                    <Link href="/allFeed"
+                    className="inline-block text-sm font-medium text-gray-200 border-b-2
+                    border-transparent transition-all duration-300 ease-in-out hover:text-blue-600 hover:border-blue-600
+                    focus:outline-none focus:text-blue-700 focus:border-blue-700">
+                    here
+                    </Link>
                 </div>
             )}
         </div>

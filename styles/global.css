@@ -136,7 +136,7 @@ body {
 
 /* Control btns Submit & Cancel */
 .submitt-btn {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 600;
 }

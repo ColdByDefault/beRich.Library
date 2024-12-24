@@ -46,9 +46,9 @@ const CreatePrompt = () => {
     return (
         <>
             <section className='relative h-full overflow-hidden'>
-                <Feed />
                 <Form type='Create' post={post} setPost={setPost} submitting={submitting}
                 handleSubmit={createPrompt}></Form>
+                <Feed />
             </section>
         </>
     )
