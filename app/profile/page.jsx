@@ -9,7 +9,7 @@ import Profile from '@components/Profile'
 const MyProfile = () => {
     const { data: session } = useSession();
     const router = useRouter([]); 
-    const [posts, setPosts] = useState([])
+    const [myPosts, setPosts] = useState([]);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -24,31 +24,35 @@ const MyProfile = () => {
     const handleEdit = (post) => {
         router.push(`/update-prompt?id=${post._id}`);
     };
-    
+  
     const handleDelete = async (post) => {
-        const hasConfirmed = confirm(
-            "Are you sure you want to delete this prompt?"
-        );
+    const hasConfirmed = confirm(
+      "Are you sure you want to delete this prompt?"
+    );
+
+    if (hasConfirmed) {
+      try {
+        await fetch(`/api/prompt/${post._id.toString()}`, {
+          method: "DELETE",
+        });
+
+        const filteredPosts = myPosts.filter((p) => p._id !== post._id);
+
+        setPosts(filteredPosts);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
     
-        if (hasConfirmed) {
-            try {
-                await fetch(`/api/prompt/${post._id}`, {
-                    method: "DELETE",
-                });
     
-                // Update posts after deletion
-                setPosts((prevPosts) => prevPosts.filter((item) => item._id !== post._id));
-            } catch (error) {
-                console.error('Error deleting post:', error);
-            }
-        }
-    };
     
     return (
         <Profile className='text-white'
         name='My'
         desc='Welcome to your personalized profile page'
-        data={posts}
+        data={myPosts}
         //pass handleEdit and handleDelete as props
         handleDelete={handleDelete}
         handleEdit={handleEdit}

@@ -30,7 +30,7 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                     <p>{post.prompt}</p>
                     <p className='text-gray-500 cursor-pointer'
                     onClick={() => handleTagClick && handleTagClick(post.tag)}
-                    >{post.tag}</p>
+                    >#{post.tag}</p>
                 </div>
                 {/* submitt-btn submitt-btn2 */}
                 <div className='flex gap-2 pt-2 cursor-pointer'
@@ -47,14 +47,14 @@ const PromptCard = ({post, handleTagClick, handleEdit, handleDelete}) => {
                 </div>
                 {session?.user.id === post.creator._id && pathName === '/profile' && (
                 <div className='flex gap-4 pt-2'>
-                <p className="cursor-pointer submitt-btn submitt-btn2"
-                onClick={() => handleEdit && handleEdit()} >
-                    Edit
-                </p>
-                <p className="cursor-pointer submitt-btn submitt-btn2 cancel-btn"
-                onClick={() => handleDelete && handleDelete()}>
-                    Delete
-                </p>
+                    <p className="cursor-pointer submitt-btn submitt-btn2"
+                    onClick={() => handleEdit && handleEdit()} >
+                        Edit
+                    </p>
+                    <p className="cursor-pointer submitt-btn submitt-btn2 cancel-btn"
+                    onClick={() => handleDelete && handleDelete()}>
+                        Delete
+                    </p>
                 </div>
                 )}
             </div>
