@@ -1,5 +1,3 @@
-// inspired by Rubix Studio - Documentation Template Next.js
-// install lucide-react
 import Image from 'next/image';
 import SidebarNav from '@components/sidebar-nav';
 import Breadcrumb from '@components/breadcrumb';
@@ -12,128 +10,136 @@ export default function Page() {
         <SidebarNav />
         <main className="flex-1 p-8 overflow-y-auto h-screen scroll-smooth">
           <h1 className='text-4xl font-bold text-blue-600'>Documents</h1>
-          {/* Getting Started */}
-          <section id="introduction" className="mt-16">
-            <h1 className="text-4xl font-bold mb-4">Introduction</h1>
-            <p className="text-gray-400">
-              Welcome to the introduction section. Here you'll find a brief overview of this documentation project.
-            </p>
-          </section>
-          <section id="installation" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Installation</h2>
-            <p className="text-gray-400">
-              Follow these steps to install the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <Breadcrumb />
-            <div className='flex gap-4 mt-8'>
-              <FeatureCard                 title="Breadcrumbs"
-                description="Navigate your documentation hierarchy with ease."
-                link="#"
-                linkText="View Docs"/>
-              <FeatureCard                 title="Breadcrumbs"
-                description="Navigate your documentation hierarchy with ease."
-                link="#"
-                linkText="View Docs"/>
-            </div>
 
-          </section>
-          <section id="setup" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Setup</h2>
+          {/* Backend Section */}
+          <section id="overview" className="mt-16">
+            <h2 className="text-4xl font-bold mb-4">Backend Overview</h2>
             <p className="text-gray-400">
-              Learn how to set up the project for local development. Nullam vitae tortor sit amet purus lacinia malesuada.
-            </p>
-          </section>
-          <section id="changelog" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Changelog</h2>
-            <p className="text-gray-400">
-              View the history of changes made to this project. Aenean et malesuada dolor.
+              The backend serves as the foundation of an application, managing data processing, server logic, and communication
+              between the database and the frontend. It ensures seamless functionality and efficient data delivery.
             </p>
           </section>
 
-          {/* Documents */}
-          <section id="navigation" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Navigation</h2>
+          <section id="basic" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Basic Knowledge</h2>
             <p className="text-gray-400">
-              Explore the navigation system. Learn how to structure your content efficiently.
+              A strong foundation in backend development includes understanding server-side programming languages like Node.js, Java,
+              or Python. Knowledge of HTTP protocols, RESTful services, and handling server errors is also crucial.
             </p>
             <div className='flex gap-4 mt-8'>
-            <FeatureCard                 title="Breadcrumbs"
-                description="Navigate your documentation hierarchy with ease."
+              <FeatureCard
+                title="HTTP Basics"
+                description="Master HTTP methods, status codes, and headers for efficient communication."
                 link="#"
-                linkText="View Docs"/>
-            <FeatureCard                 title="Breadcrumbs"
-                description="Navigate your documentation hierarchy with ease."
+                linkText="Learn More"
+              />
+              <FeatureCard
+                title="Server Frameworks"
+                description="Discover popular frameworks like Express.js and Spring Boot."
                 link="#"
-                linkText="View Docs"/>
+                linkText="Learn More"
+              />
             </div>
-
           </section>
-          <section id="structure" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Structure</h2>
+
+          <section id="databases" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Databases</h2>
             <p className="text-gray-400">
-              Discover the ideal content structure for your documentation. Sed id justo vel lectus faucibus venenatis.
+              Databases play a critical role in backend development, providing a system for storing, organizing, and retrieving data.
+              From relational databases like MySQL and PostgreSQL to NoSQL databases like MongoDB, understanding database concepts is vital.
+            </p>
+            <div className='flex gap-4 mt-8'>
+              <FeatureCard
+                title="Relational Databases"
+                description="Learn about SQL databases and efficient data modeling."
+                link="#"
+                linkText="Learn More"
+              />
+              <FeatureCard
+                title="NoSQL Databases"
+                description="Explore NoSQL solutions for flexible data storage needs."
+                link="#"
+                linkText="Learn More"
+              />
+            </div>
+          </section>
+
+          <section id="api" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">APIs</h2>
+            <p className="text-gray-400">
+              APIs (Application Programming Interfaces) allow different software systems to communicate. Building well-structured APIs
+              ensures seamless integration and scalability. Familiarize yourself with RESTful services and API security best practices.
             </p>
           </section>
 
-          {/* Components */}
-          <section id="markup" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Markup</h2>
+          <section id="java" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Programming Languages - Java</h2>
             <p className="text-gray-400">
-              Learn about the available markup styles. Curabitur efficitur neque eu quam fermentum, a cursus odio facilisis.
+              Java is a versatile and powerful programming language widely used for backend development. Its platform independence
+              and strong community support make it a popular choice for enterprise applications.
             </p>
           </section>
+
+          <section id="basicsPy" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Programming Languages - Python Basics</h2>
+            <p className="text-gray-400">
+              Python is known for its simplicity and readability, making it an excellent choice for beginners. Core concepts include
+              variables, data types, control structures, and functions.
+            </p>
+          </section>
+
+          <section id="advancedPy" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Programming Languages - Python Advanced</h2>
+            <p className="text-gray-400">
+              Advanced Python topics include decorators, generators, asynchronous programming, and integrating Python with databases
+              or REST APIs for backend solutions.
+            </p>
+          </section>
+
+          {/* Frontend Section */}
+          <section id="buttons" className="mt-16">
+            <h2 className="text-4xl font-bold mb-4">UI Elements - Buttons</h2>
+            <p className="text-gray-400">
+              Buttons are essential interactive elements that trigger user actions. Styling and functionality play a critical role
+              in ensuring a seamless user experience.
+            </p>
+          </section>
+
           <section id="cards" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Cards</h2>
+            <h2 className="text-3xl font-bold mb-4">UI Elements - Cards</h2>
             <p className="text-gray-400">
-              This section covers card components used throughout the project.
+              Cards are flexible containers for displaying related information. They can include images, text, and links, offering a
+              visually engaging way to present content.
+            </p>
+            <div className='flex gap-4 mt-8'>
+              <FeatureCard
+                title="Card Design"
+                description="Explore best practices for designing attractive and functional cards."
+                link="#"
+                linkText="Learn More"
+              />
+              <FeatureCard
+                title="Card Layouts"
+                description="Learn how to create responsive card layouts for various screen sizes."
+                link="#"
+                linkText="Learn More"
+              />
+            </div>
+          </section>
+
+          <section id="signup" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Forms - Sign-Up</h2>
+            <p className="text-gray-400">
+              Sign-up forms are crucial for onboarding users. Key elements include validation, user-friendly input fields,
+              and secure data handling.
             </p>
           </section>
-          <section id="diagrams" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Diagrams</h2>
+
+          <section id="login" className="mt-16">
+            <h2 className="text-3xl font-bold mb-4">Forms - Log-In</h2>
             <p className="text-gray-400">
-              Learn how to include diagrams in your documentation for better visualization.
-            </p>
-          </section>
-          <section id="filetree" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Filetree</h2>
-            <p className="text-gray-400">
-              Organize and display your project’s file structure effectively.
-            </p>
-          </section>
-          <section id="lists" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Lists</h2>
-            <p className="text-gray-400">
-              Understand how to use and style lists in your content.
-            </p>
-          </section>
-          <section id="maths" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Maths</h2>
-            <p className="text-gray-400">
-              This section explains how to include mathematical expressions in your documents.
-            </p>
-          </section>
-          <section id="notes" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Notes</h2>
-            <p className="text-gray-400">
-              Learn how to add notes and annotations in your documentation.
-            </p>
-          </section>
-          <section id="steps" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Steps</h2>
-            <p className="text-gray-400">
-              Step-by-step guides for completing tasks or workflows.
-            </p>
-          </section>
-          <section id="table" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Table</h2>
-            <p className="text-gray-400">
-              Create and format tables for structured data representation.
-            </p>
-          </section>
-          <section id="tabs" className="mt-16">
-            <h2 className="text-3xl font-bold mb-4">Tabs</h2>
-            <p className="text-gray-400">
-              Utilize tabbed navigation for better organization and readability.
+              Log-in forms are essential for authentication. Best practices involve secure password handling, validation,
+              and user feedback.
             </p>
           </section>
         </main>

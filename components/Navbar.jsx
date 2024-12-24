@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { createDotsBackground } from "@/utils/backgroundDots";
+/* import { createDotsBackground } from "@/utils/backgroundDots"; */
 
 const NavLink = ({ href, children, onClick }) => (
   <Link href={href} className="navbar-btn rounded-full" onClick={onClick}>
@@ -53,7 +53,7 @@ const Navbar = () => {
     };
     fetchProviders();
 
-    const setupCanvas = () => {
+    /* const setupCanvas = () => {
       const canvas = canvasRef.current;
       const navbar = canvas.parentNode;
 
@@ -77,17 +77,17 @@ const Navbar = () => {
       if (canvasController.current) {
         canvasController.current.stop(); // Clean up on unmount
       }
-    };
-  }, []);
+    };*/
+  }, []); 
 
-  const toggleCanvas = () => {
+/*   const toggleCanvas = () => {
     if (isCanvasActive) {
       canvasController.current?.stop();
     } else {
       canvasController.current?.start();
     }
     setIsCanvasActive((prev) => !prev);
-  };
+  }; */
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -99,11 +99,11 @@ const Navbar = () => {
 
   return (
     <nav className="relative bg-black p-3">
-      <canvas
+      {/* <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none"
         aria-hidden="true"
-      ></canvas>
+      ></canvas> */}
       <div className="flex justify-between items-center max-w-6xl mx-auto">
         <Link href="/" className="flex items-center gap-2 z-10">
           <Image
@@ -143,6 +143,7 @@ const Navbar = () => {
           ) : (
             <>
               <NavLink href="/">Home</NavLink>
+              <NavLink href="/docs">Docs</NavLink>
               <SignInButton
                 providers={providers}
                 showDropdown={showProviderDropdown}
@@ -152,11 +153,11 @@ const Navbar = () => {
             </>
           )}
           {/* Toggle Canvas Button */}
-          <button
+{/*           <button
             onClick={toggleCanvas}
             className="navbar-btn navbar-btn2 rounded-full">
             {isCanvasActive ? "Canvas-Off" : "Canvas-On"}
-          </button>
+          </button> */}
         </div>
         <button
           className="sm:hidden z-10 bg-white"
