@@ -1,5 +1,5 @@
 // inspired by Rubix Studio - Documentation Template Next.js
-
+// install lucide-react
 import Image from 'next/image';
 import SidebarNav from '@components/sidebar-nav';
 import Breadcrumb from '@components/breadcrumb';
