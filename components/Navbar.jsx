@@ -64,6 +64,11 @@ const Navbar = () => {
     /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
   ];
 
+  const navLinksGuest = [
+    { href: "/", label: "Home", icon: <AiOutlineHome /> },
+    { href: "/docs", label: "Docs", icon: <MdOutlineDocumentScanner /> },
+  ];
+
   return (
     <nav className="sticky  top-0 left-0 right-0
     bg-black backdrop-filter backdrop-blur-lg bg-opacity-30
@@ -103,15 +108,14 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              
-              <div className="flex text-white items-center">
-                <AiOutlineHome />
-                <NavLink href="/" className="flex">Home</NavLink>
-              </div>
-              <div className="flex text-white items-center">
-                <MdOutlineDocumentScanner />
-                <NavLink href="/docs" className="flex">docs</NavLink>
-              </div>
+              {navLinksGuest.map((link) => (
+                <NavLink key={link.href} href={link.href}>
+                  <div className="flex items-center space-x-2 text-white hover:text-gray-300">
+                    {link.icon}
+                    <span>{link.label}</span>
+                  </div>
+                </NavLink>
+              ))}
               <SignInButton
                 providers={providers}
                 showDropdown={showProviderDropdown}
