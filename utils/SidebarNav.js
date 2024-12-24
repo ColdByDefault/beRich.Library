@@ -5,13 +5,13 @@ const navItems = [
       {
         title: "Starters",
         items: [
-          { title: "Overview", href: "#overview" },
+          { title: "Overview", href: "/docs/overview" },
           {
             title: "Subjects",
             items: [
-              { title: "Basic Knowledge", href: "#basic" },
-              { title: "Databases", href: "#databases" },
-              { title: "APIs", href: "#api" },
+              { title: "Basic Knowledge", href: "" },
+              { title: "Databases", href: "" },
+              { title: "APIs", href: "" },
             ],
           },
         ],
@@ -19,12 +19,12 @@ const navItems = [
       {
         title: "Programming Languages",
         items: [
-          { title: "Java", href: "#java" },
+          { title: "Java", href: "" },
           {
             title: "Python",
             items: [
-              { title: "Basics", href: "#basicsPy" },
-              { title: "Advanced", href: "#advancedPy" },
+              { title: "Basics", href: "/docs/basic" },
+              { title: "Advanced", href: "" },
             ],
           },
         ],
@@ -37,15 +37,15 @@ const navItems = [
       {
         title: "UI Elements",
         items: [
-          { title: "Buttons", href: "#buttons" },
-          { title: "Cards", href: "#cards" },
+          { title: "Buttons", href: "" },
+          { title: "Cards", href: "" },
         ],
       },
       {
         title: "Forms",
         items: [
-          { title: "Sign-Up", href: "#signup" },
-          { title: "Log-In", href: "#login" },
+          { title: "Sign-Up", href: "" },
+          { title: "Log-In", href: "" },
         ],
       },
     ],

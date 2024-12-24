@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
-/* import { createDotsBackground } from "@/utils/backgroundDots"; */
 
 const NavLink = ({ href, children, onClick }) => (
   <Link href={href} className="navbar-btn rounded-full" onClick={onClick}>
@@ -22,13 +21,13 @@ const SignInButton = ({ providers, showDropdown, setShowDropdown }) => (
       Sign In
     </button>
     {showDropdown && providers && (
-      <div className="absolute top-full mt-4 bg-black/50 shadow-md rounded-md p-4 left-0
-      lg:m-2">
+      <div className="absolute top-full mt-4 bg-black/50 shadow-lg rounded-lg p-4 left-0">
         {Object.values(providers).map((provider) => (
           <button
             key={provider.name}
             onClick={() => signIn(provider.id)}
-            className="block w-full text-left p-2 navbar-btn rounded-full">
+            className="block w-full text-left p-2 navbar-btn rounded-full"
+          >
             {provider.name}
           </button>
         ))}
@@ -38,13 +37,10 @@ const SignInButton = ({ providers, showDropdown, setShowDropdown }) => (
 );
 
 const Navbar = () => {
-  const canvasRef = useRef(null);
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [isCanvasActive, setIsCanvasActive] = useState(true);
-  const canvasController = useRef(null); // Store start/stop controls
 
   useEffect(() => {
     const fetchProviders = async () => {
@@ -52,58 +48,20 @@ const Navbar = () => {
       setProviders(response);
     };
     fetchProviders();
-
-    /* const setupCanvas = () => {
-      const canvas = canvasRef.current;
-      const navbar = canvas.parentNode;
-
-      const handleResize = () => {
-        canvas.width = navbar.offsetWidth;
-        canvas.height = navbar.offsetHeight;
-        if (canvasController.current) {
-          canvasController.current.stop();
-        }
-        canvasController.current = createDotsBackground(canvas, canvas.width, canvas.height);
-      };
-
-      handleResize();
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    };
-
-    setupCanvas();
-
-    return () => {
-      if (canvasController.current) {
-        canvasController.current.stop(); // Clean up on unmount
-      }
-    };*/
-  }, []); 
-
-/*   const toggleCanvas = () => {
-    if (isCanvasActive) {
-      canvasController.current?.stop();
-    } else {
-      canvasController.current?.start();
-    }
-    setIsCanvasActive((prev) => !prev);
-  }; */
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/create-prompt", label: "AI Prompts" },
     { href: "/docs", label: "Docs" },
-    { href: "/gfn", label: "GFN+" },
-    { href: "/profile", label: "Profile" }, 
+    /* { href: "/gfn", label: "GFN+" }, */
+    /* { href: "/profile", label: "Profile" }, */
   ];
 
   return (
-    <nav className="relative bg-black p-3">
-      {/* <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        aria-hidden="true"
-      ></canvas> */}
+    <nav className="sticky  top-0 left-0 right-0
+    bg-black backdrop-filter backdrop-blur-lg bg-opacity-30
+    shadow-lg z-50 p-3 ">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
         <Link href="/" className="flex items-center gap-2 z-10">
           <Image
@@ -123,7 +81,7 @@ const Navbar = () => {
                   {link.label}
                 </NavLink>
               ))}
-              <Link href="/">
+              <Link href="/profile">
                 <Image
                   src={session.user.image}
                   alt="Profile"
@@ -152,36 +110,30 @@ const Navbar = () => {
               />
             </>
           )}
-          {/* Toggle Canvas Button */}
-{/*           <button
-            onClick={toggleCanvas}
-            className="navbar-btn navbar-btn2 rounded-full">
-            {isCanvasActive ? "Canvas-Off" : "Canvas-On"}
-          </button> */}
         </div>
         <button
-          className="sm:hidden z-10 bg-white"
+          className="sm:hidden z-10 bg-white rounded-md px-3 py-2"
           onClick={() => setShowMobileMenu(!showMobileMenu)}
-          aria-label="Toggle mobile menu">
+          aria-label="Toggle mobile menu"
+        >
           ☰
         </button>
       </div>
 
       {showMobileMenu && (
-        <div className="sm:hidden absolute top-full left-0 right-0 bg-black/50 backdrop-blur-sm shadow-lg p-4 z-20 flex flex-col gap-3">
+        <div className="sm:hidden absolute top-full left-0 right-0 bg-black/70 backdrop-blur-md shadow-lg p-4 z-20 flex flex-col gap-3">
           {session?.user ? (
             <>
               {navLinks.map((link) => (
                 <NavLink
                   key={link.href}
                   href={link.href}
-                  onClick={() => setShowMobileMenu(false)}
-                >
+                  onClick={() => setShowMobileMenu(false)}>
                   {link.label}
                 </NavLink>
               ))}
               <div className="flex gap-2">
-                <Link href="/" className="block my-2">
+                <NavLink href="/profile" onClick={() => setShowMobileMenu(false)} className="block my-2">
                   <Image
                     src={session.user.image}
                     alt="Profile"
@@ -189,7 +141,7 @@ const Navbar = () => {
                     height={30}
                     className="rounded-full"
                   />
-                </Link>
+                </NavLink>
                 <button
                   type="button"
                   onClick={() => {
@@ -201,11 +153,6 @@ const Navbar = () => {
                   Sign Out
                 </button>
               </div>
-              <button
-                onClick={toggleCanvas}
-                className="navbar-btn navbar-btn2 rounded-full">
-                {isCanvasActive ? "Canvas-Off" : "Canvas-On"}
-              </button>
             </>
           ) : (
             <>
@@ -217,11 +164,6 @@ const Navbar = () => {
                 showDropdown={showProviderDropdown}
                 setShowDropdown={setShowProviderDropdown}
               />
-              <button
-                onClick={toggleCanvas}
-                className="navbar-btn navbar-btn2 rounded-full">
-                {isCanvasActive ? "Canvas-Off" : "Canvas-On"}
-              </button>
             </>
           )}
         </div>
@@ -231,5 +173,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

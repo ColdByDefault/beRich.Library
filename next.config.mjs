@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
+import withMDX from '@next/mdx';
+
+const mdxConfig = withMDX({
+  extension: /\.mdx?$/,
+});
+
 const nextConfig = {
   env: {
     MONGODB_URI: process.env.MONGODB_URI,
@@ -20,6 +25,7 @@ const nextConfig = {
       },
     ],
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
 };
 
-export default nextConfig;
+export default mdxConfig(nextConfig);
