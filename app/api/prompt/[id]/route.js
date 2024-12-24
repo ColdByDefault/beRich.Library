@@ -42,16 +42,3 @@ export const PATCH = async (request, { params }) => {
     }
 };
 
-export const DELETE = async (request, { params }) => {
-    try {
-        await connectToDatabase();
-
-        const { id } = params; // Destructure id properly
-        await Prompt.findByIdAndRemove(id);
-
-        return new Response("Prompt deleted successfully", { status: 200 });
-    } catch (error) {
-        console.error("DELETE Error:", error);
-        return new Response("Error deleting prompt", { status: 500 });
-    }
-};
