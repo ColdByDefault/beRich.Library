@@ -4,9 +4,6 @@ import GithubProvider from "next-auth/providers/github"
 import { connectToDatabase } from "@utils/database";
 import User from "@models/user";
 
-
-
-
 const handler = NextAuth({
     providers: [
         GoogleProvider({
