@@ -103,8 +103,15 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/docs">Docs</NavLink>
+              
+              <div className="flex text-white items-center">
+                <AiOutlineHome />
+                <NavLink href="/" className="flex">Home</NavLink>
+              </div>
+              <div className="flex text-white items-center">
+                <MdOutlineDocumentScanner />
+                <NavLink href="/docs" className="flex">docs</NavLink>
+              </div>
               <SignInButton
                 providers={providers}
                 showDropdown={showProviderDropdown}
