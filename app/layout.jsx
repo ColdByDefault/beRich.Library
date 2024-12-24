@@ -3,7 +3,7 @@
 // NOT ALLOWED TO BE SHARED, COPIED, OR MODIFIED WITHOUT PERMISSION
 // AnotherProject beRich v3.2.1
 // more info: https://www.coldbydefault.com
-
+// See Issues
 
 import React from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/next"
