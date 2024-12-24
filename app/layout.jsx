@@ -4,8 +4,10 @@
 // AnotherProject beRich v3.2.1
 // more info: https://www.coldbydefault.com
 
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import React from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
 import '@styles/global.css';
 import Navbar from '@components/Navbar';
 import Provider from '@components/Provider';
@@ -31,6 +33,7 @@ const RootLayout = ({ children }) => {
                     <CookiesBanner /> {/* Add the CookiesBanner here */}  
                 </Provider>
                 <SpeedInsights />
+                <Analytics />
             </body>
         </html>
     );
