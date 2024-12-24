@@ -10,6 +10,7 @@ const navItems = [
             title: "Subjects",
             items: [
               { title: "Basic Knowledge", href: "" },
+              { title: "Algorithms", href: "/docs/algorithms" },
               { title: "Databases", href: "" },
               { title: "APIs", href: "" },
             ],

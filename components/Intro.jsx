@@ -1,4 +1,5 @@
 import React from 'react'
+import { RiNextjsFill } from "react-icons/ri";
 
 const Intro = () => {
   return (
@@ -6,10 +7,12 @@ const Intro = () => {
     items-center justify-center">
       <div className="relative flex items-center justify-center">
         <div className="text-white text-center">
-          <h1 className="text-3xl lg:text-5xl font-bold mb-4" style={{ transform: "translateZ(20px)" }}>
-            beRich<span className="text-blue-800">Hub</span><span className="text-[10px]">Built with NEXT.JS</span><br />
-            &#123;<span className="text-blue-800">Digital Library</span>&#125;
-          </h1>
+          <div className="flex flex-col text-3xl lg:text-5xl font-bold mb-4" 
+          style={{ transform: "translateZ(20px)" }}>
+            <h1>beRich<span className="text-blue-800">Hub</span><span className="text-[10px]">Built with
+            <RiNextjsFill className="inline-block text-xl -translate-y-1"/></span></h1>
+            <h1>&#123;<span className="text-blue-800">Digital Library</span>&#125;</h1>
+          </div>
           <p className="text-white text-sm mb-6 max-w-2xl mx-auto" style={{ textShadow: "0px 2px 10px #5b7080f1" }}>
             {/* translate */}
               Willkommen bei beRichHub, einer digitalen Bibliothek, in der Du kostenlos Resources lesen und herunterladen kannst.

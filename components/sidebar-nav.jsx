@@ -55,16 +55,15 @@ export default function SidebarNav() {
       </div>
       <div className="space-y-6">
         {navItems.map((section, index) => (
-          <div key={index}>
+          <div key={`section-${index}`}>
             <h2 className="mb-4 mt-2 text-lg font-semibold text-white">{section.section}</h2>
             {section.items.map((item, subIndex) => (
-              <div className='border-b-2 border-gray-700 mb-4 pb-4'>
+              <div key={`item-${subIndex}`} className="border-b-2 border-gray-700 mb-4 pb-4">
                 <NavItem
-                key={subIndex}
-                title={item.title}
-                items={item.items}
-                defaultOpen={index === 0 && subIndex === 0}
-              />
+                  title={item.title}
+                  items={item.items}
+                  defaultOpen={index === 0 && subIndex === 0}
+                />
               </div>
             ))}
           </div>
