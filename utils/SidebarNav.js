@@ -5,18 +5,21 @@ const navItems = [
       {
         title: "Starters",
         items: [
-          { title: "Algorithms", href: "/docs/algorithms"},
+          { title: "Basic Math", href: "/docs/math"},
         ],
       },
       {
         title: "Programming Languages",
         items: [
-          { title: "Java", href: "" },
           {
-            title: "Python",
+            title: "JavaScript",
             items: [
-              { title: "Basics", href: "/docs/basic" },
-              { title: "Advanced", href: "" },
+              { title: "Node.Js",
+                items: [
+                  { title: "Basics", href: "/docs/javascriptDocs/" },
+                  { title: "Advanced", href: "" },
+                ],
+              },
             ],
           },
         ],

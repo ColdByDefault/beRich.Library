@@ -22,6 +22,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="de">
+            <head>
+                <title>beRich.Library</title>
+                <link rel="icon" href="/favicon.ico" />
+                <meta name="description" content="Digital Library for developers" />
+            </head>
             <body>
                 <Provider>
 
