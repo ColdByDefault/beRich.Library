@@ -4,6 +4,7 @@ import Breadcrumb from '@components/breadcrumb';
 import KatexSpan  from '@utils/LaTexRender';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMarkdown } from '@utils/getMarkdown';
+import 'katex/dist/katex.min.css';
 import '@styles/docs.css';
 
 

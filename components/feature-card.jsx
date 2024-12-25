@@ -8,8 +8,7 @@ export default function FeatureCard({ title, description, link, linkText }) {
       {link && (
         <a
           href={link}
-          className="absolute top-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity"
-        >
+          className="absolute top-0 right-0 p-3 opacity-0 group-hover:opacity-100 transition-opacity">
           <ArrowUpRight className="w-4 h-4 text-white" />
         </a>
       )}

@@ -1,25 +1,51 @@
 const navItems = [
   {
-    section: "Backend",
+    section: "Start Here",
     items: [
       {
-        title: "Starters",
+        title: "Basics",
         items: [
-          { title: "Basic Math", href: "/docs/math"},
+          { title: "Basic Math", href: "/docs/math" },
+          { title: "Algorithms", href: "/docs/algorithms" },
+          { title: "Basic Programming", href: "/docs/programming" },
+        ],
+      },
+    ],
+  },
+  {
+    section: "Programming Languages",
+    items: [
+      {
+        title: "Python",
+        items: [
+          { title: "Basics", href: "/docs/docsPython/basics" },
+          { title: "Advanced", href: "/docs/docsPython/advanced" },
+          { title: "Machine Learning", href: "/docs/docsPython/machine-learning" },
+          {
+            title: "Frameworks",
+            items: [
+              { title: "Flask", href: "/docs/docsPython/frameworks/flask" },
+              { title: "Django", href: "/docs/docsPython/frameworks/django" },
+            ],
+          },
         ],
       },
       {
-        title: "Programming Languages",
+        title: "JavaScript",
         items: [
+          { title: "Basics", href: "/docs/docsJS/basics" },
+          { title: "Advanced", href: "/docs/docsJS/advanced" },
           {
-            title: "JavaScript",
+            title: "Libraries",
             items: [
-              { title: "Node.Js",
-                items: [
-                  { title: "Basics", href: "/docs/javascriptDocs/" },
-                  { title: "Advanced", href: "" },
-                ],
-              },
+              { title: "React", href: "/docs/docsJS/libraries/react" },
+            ],
+          },
+          {
+            title: "Frameworks",
+            items: [
+              { title: "NodeJs", href: "/docs/docsJS/frameworks/nodeJs" },
+              { title: "NextJs", href: "/docs/docsJS/frameworks/nextJs" },
             ],
           },
         ],
@@ -27,20 +53,25 @@ const navItems = [
     ],
   },
   {
-    section: "Frontend",
+    section: "Version Control",
+    items: [
+      { title: "Git", href: "/docs/version-control/docs-Git" },
+      { title: "GitHub", href: "/docs/version-control/docs-GitHub" },
+    ],
+  },
+  {
+    section: "Database",
+    items: [
+      { title: "Basics", href: "/docs/docs-DataBase/basics" },
+    ],
+  },
+  {
+    section: "Others",
     items: [
       {
-        title: "UI Elements",
+        title: "Title",
         items: [
-          { title: "Buttons", href: "" },
-          { title: "Cards", href: "" },
-        ],
-      },
-      {
-        title: "Forms",
-        items: [
-          { title: "Sign-Up", href: "" },
-          { title: "Log-In", href: "" },
+          { title: "SubTitle", href: "" },
         ],
       },
     ],

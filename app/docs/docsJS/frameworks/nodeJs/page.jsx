@@ -3,9 +3,25 @@
 import { useEffect, useState } from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMarkdown } from '@utils/getMarkdown';
-import 'katex/dist/katex.min.css'; // KaTeX styles for LaTeX rendering
+import 'katex/dist/katex.min.css'; 
 import Breadcrumb from '@components/breadcrumb';
-import { Step, StepItem } from '@components/Steps'; // Import custom components
+
+
+function Step({ children }) {
+  return <div className="steps-container">{children}</div>;
+}
+
+function StepItem({ title, children, number }) {
+  return (
+    <div className="step-item">
+      <div className="step-header">
+        <div className="step-number">{number}</div>
+        <h4 className="step-title">{title}</h4>
+      </div>
+      <div className="step-content">{children}</div>
+    </div>
+  );
+}
 
 export default function NodeJsPage() {
   const [mdxContent, setMdxContent] = useState(null);
