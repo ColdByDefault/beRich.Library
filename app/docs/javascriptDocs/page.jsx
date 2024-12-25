@@ -13,7 +13,7 @@ export default function NodeJsPage() {
   useEffect(() => {
     const loadMarkdown = async () => {
       try {
-        const content = await getMarkdown('/docs/mdfiles/nodeJs.mdx');
+        const content = await getMarkdown('/docs/mdFiles/nodeJs.mdx');
         setMdxContent(content);
       } catch (error) {
         console.error('Error loading MDX:', error);
