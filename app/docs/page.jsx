@@ -1,66 +1,116 @@
 import Breadcrumb from '@components/breadcrumb';
 import FeatureCard from '@components/feature-card';
+import Image from 'next/image';
+import '@styles/docs.css';
 
 export default function Page() {
   return (
-    <div className="text-white">
+    <div className='docs-container'>
       <Breadcrumb />
-      <div className="p-8">
-        <main className="">
+      <div>
+        <main>
           {/* Introduction Section */}
-          <section className="mb-12">
-            <h1 className="text-4xl font-bold text-white mb-2">Introduction</h1>
-            <p className="text-gray-400 text-lg">
-              This section provides an overview of the Documents.
+          <section>
+            <h1>Introduction</h1>
+            <p>
+              This section provides an overview of the Library.
             </p>
           </section>
           {/* Cube Icon and Documents Section */}
-          <section className="mb-12">
+          <section>
             <div className="bg-black backdrop-filter backdrop-blur-sm bg-opacity-30
             shadow-lg rounded-lg p-12 w-full items-center justify-center flex flex-col">
               {/* Cube Icon */}
               <div className="w-full h-52 flex justify-center items-center mb-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-16 h-16 text-white"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73z" />
-                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-                  <line x1="12" y1="22.08" x2="12" y2="12" />
-                </svg>
+                <Image src="/assets/images/library.png" width={400} height={400} alt="Folder Icon" />
               </div>
-              <h2 className="text-2xl font-bold">Documents</h2>
+              <h2>beRich</h2>
             </div>
           </section>
-
           {/* Description Section */}
-          <section className="text-center">
-            <h3 className="text-xl font-bold mb-4">Documents</h3>
-            <p className="text-gray-300 text-lg mb-4">
-              Welcome to <span className="text-blue-500 font-bold">Documents</span>, a powerful and flexible Next.js documentation starter kit.
+          <section className='text-center mt-2'>
+            <p>
+              Welcome to <span>beRich.Library</span>, a powerful and flexible Next.js documentation page.
             </p>
             <p className="text-gray-300 text-lg">
-              Built with <span className="font-bold">React</span>, <span className="font-bold">Tailwind CSS</span>, and <span className="font-bold">JavaScript</span>.
+              Built with <span>React</span>, <span>Tailwind CSS</span>, and <span className="font-bold">JavaScript</span>.
             </p>
           </section>
-          <div className="flex justify-center gap-4 mt-8">
+          <div className="flex justify-center gap-4 my-8">
             <FeatureCard
-              title="Documentation"
+              title="NEXT.JS"
               description="Learn how to use the starter kit with step-by-step guides."
-              link="/docs"
+              link="/docs/docsJS/frameworks/nextJs"
               linkText="View Docs"/>
+            <FeatureCard
+              title="React"
+              description="Explore the React documentation and learn how to build web applications."
+              link="/docs/docsJS/libraries/react"
+              linkText="Explore React"/>
             <FeatureCard
               title="API Reference"
               description="Dive deep into the API for advanced usage and customization."
-              link="/api"
+              link="/docs"
               linkText="Explore API"/>
           </div>
+          <div>
+            <h2 className=''>Why This Digital Library?</h2>
+            <p>
+            This digital library was created to serve as a free and accessible hub for anyone looking to 
+            expand their knowledge and skills. It's a collection of curated resources, 
+            tools, and insights gathered during my own learning journey, tailored to inspire 
+            and support learners of all levels. Whether you're exploring programming, discovering new tools, 
+            or seeking guidance, this hub is designed to make learning straightforward and enjoyable.
+            </p>
+            <p>
+              The library's flexible and user-friendly structure ensures you can dive into learning, explore resources, and connect with tools seamlessly.
+            </p>
+            <ul>
+              <li>Learning Materials: Discover courses, books, and guides across various domains.</li>
+              <li>Tools for Growth: Find the most effective tools and software for productivity and skill-building.</li>
+              <li>Curated Links: Access a well-organized collection of websites and platforms to enhance your journey.</li>
+            </ul>
+            <p>
+              This library is continuously evolving to reflect the latest in education and technology, making it a reliable companion for your growth.
+            </p>
+          </div>
+          <div>
+            <h2>Key Features</h2>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Feature</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Structured Resources</td>
+                    <td>Organized categories and sections for easy navigation and discovery of learning materials.</td>
+                  </tr>
+                  <tr>
+                    <td>Curated Tools</td>
+                    <td>Handpicked software and platforms to assist in productivity and skill enhancement.</td>
+                  </tr>
+                  <tr>
+                    <td>Interactive Content</td>
+                    <td>Includes interactive tools and links to engage and deepen understanding of key concepts.</td>
+                  </tr>
+                  <tr>
+                    <td>Multilingual Support</td>
+                    <td>Resources available in English, Arabic, and German for a global learning experience.</td>
+                  </tr>
+                  <tr>
+                    <td>Open Collaboration</td>
+                    <td>Contributions and suggestions are welcomed to make the library more robust and inclusive.</td>
+                  </tr>
+                  <tr>
+                    <td>Updated Regularly</td>
+                    <td>Continuous updates to ensure the latest resources and tools are readily available.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
         </main>
       </div>
     </div>

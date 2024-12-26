@@ -42,7 +42,7 @@ export default function NodeJsPage() {
   return (
     <>
       <Breadcrumb />
-      <section className="docs-section relative">
+      <section className="relative">
         {mdxContent ? (
           <MDXRemote
             {...mdxContent}

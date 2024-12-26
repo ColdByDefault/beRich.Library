@@ -28,14 +28,14 @@ export default function Math() {
     return (
         <>
         <Breadcrumb/>
-        <section className='py-8'>
-            <h1 className='text-3xl text-blue-500'>Math with LaTex</h1>
+        <section>
+            <h1>Math with LaTex</h1>
             <KatexSpan text="This is inline math: $E=mc^2$" />
             <KatexSpan text="and this is display math: $\frac{a}{b}$" />
         </section>
-        <section className='docs-section relative '>
-            <h1 className='text-3xl text-blue-500'>Math with Markdown .mdx</h1>
-            <div className=" text-white py-8">
+        <section className='relative '>
+            <h1>Math with Markdown .mdx</h1>
+            <div>
             {mdxContent ? (
             <MDXRemote {...mdxContent} />
             ) : (

@@ -66,7 +66,7 @@ const navItems = [
     ],
   },
   {
-    section: "Others",
+    section: "API",
     items: [
       {
         title: "Title",

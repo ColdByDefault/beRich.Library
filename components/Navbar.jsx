@@ -59,14 +59,14 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
-    { href: "/docs", label: "Docs", icon: <MdOutlineDocumentScanner /> },
+    { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
     /* { href: "/gfn", label: "GFN+", icon: <AiOutlineGlobal /> }, */
     /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
   ];
 
   const navLinksGuest = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
-    { href: "/docs", label: "Docs", icon: <MdOutlineDocumentScanner /> },
+    { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
   ];
 
   return (
@@ -165,6 +165,9 @@ const Navbar = () => {
             <>
               <NavLink href="/" onClick={() => setShowMobileMenu(false)}>
                 Home
+              </NavLink>
+              <NavLink href="/docs" onClick={() => setShowMobileMenu(false)}>
+                Library
               </NavLink>
               <SignInButton
                 providers={providers}
