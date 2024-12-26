@@ -20,7 +20,7 @@ const Intro = () => {
           </p>
           <div className="flex space-x-4 justify-center">
             {/* translate */}
-            <a href=""
+            <a href="/docs"
               className="bg-blue-800 text-white font-semibold text-sm rounded-lg shadow-md  
               py-4 px-1 lg:px-6 lg:text-lg  
               hover:bg-blue-300 transition"

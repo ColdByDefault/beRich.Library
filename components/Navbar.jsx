@@ -70,7 +70,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky  top-0 left-0 right-0
+    <nav className="relative
     bg-black backdrop-filter backdrop-blur-lg bg-opacity-30
     shadow-lg z-50 p-3 ">
       <div className="flex justify-between items-center max-w-6xl mx-auto">

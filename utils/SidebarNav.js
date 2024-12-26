@@ -5,9 +5,19 @@ const navItems = [
       {
         title: "Basics",
         items: [
+          { title: "Strater-pack", href: "/docs/starter-pack" },
           { title: "Basic Math", href: "/docs/math" },
           { title: "Algorithms", href: "/docs/algorithms" },
           { title: "Basic Programming", href: "/docs/programming" },
+        ],
+      },
+      {
+        title: "Links",
+        items: [
+          { title: "Education", href: "" },
+          { title: "Articls", href: "" },
+          { title: "Tools", href: "" },
+          { title: "Labs", href: "" },
         ],
       },
     ],

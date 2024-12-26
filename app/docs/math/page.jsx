@@ -1,6 +1,17 @@
 import Breadcrumb from '@components/breadcrumb';
 import KatexSpan  from '@utils/LaTexRender';
 import Link from 'next/link';
+import RightSidebarNav from '@components/RightSidebarNav';
+
+
+
+const topics = [
+  { id: 1, title: 'Arithmetic', link: '#arithmetic' },
+  { id: 2, title: 'Basic Algebra', link: '#basic-algebra' },
+  { id: 3, title: 'Geometry', link: '#geometry' },
+  { id: 4, title: 'Practice Platforms', link: '#practice-platforms' },
+  { id: 5, title: 'Advanced Topics', link: '#advanced-topics' },
+];
 
 
 export default function Math() {
@@ -10,6 +21,7 @@ export default function Math() {
         <div className='mb-4'>
         <Breadcrumb />
         </div>
+
         <section>
             <h1>Math with LaTex</h1>
             <KatexSpan text="This is inline math: $E=mc^2$"/>
@@ -26,7 +38,7 @@ export default function Math() {
         <div className="space-y-8">
           {/* Section: Arithmetic */}
           <div>
-            <h2 className="text-2xl font-bold text-indigo-400 mb-4">1. Arithmetic</h2>
+            <h2 id='arithmetic' className="text-2xl font-bold text-indigo-400 mb-4">1. Arithmetic</h2>
             <p className="mb-4">
               Arithmetic is the foundation of mathematics. Learn operations like addition, subtraction, multiplication, division, and their applications.
             </p>
@@ -66,7 +78,7 @@ export default function Math() {
 
           {/* Section: Basic Algebra */}
           <div>
-            <h2 className="text-2xl font-bold text-indigo-400 mb-4">2. Basic Algebra</h2>
+            <h2 id='basic-algebra' className="text-2xl font-bold text-indigo-400 mb-4">2. Basic Algebra</h2>
             <p className="mb-4">
               Algebra introduces variables and equations. Start with understanding linear equations, inequalities, and algebraic expressions.
             </p>
@@ -106,7 +118,7 @@ export default function Math() {
 
           {/* Section: Geometry */}
           <div>
-            <h2 className="text-2xl font-bold text-indigo-400 mb-4">3. Geometry</h2>
+            <h2 id='geometry' className="text-2xl font-bold text-indigo-400 mb-4">3. Geometry</h2>
             <p className="mb-4">
               Learn the basics of shapes, angles, and spatial reasoning. Geometry is essential for visualizing and solving real-world problems.
             </p>
@@ -146,7 +158,7 @@ export default function Math() {
 
           {/* Section: Practice Platforms */}
           <div>
-            <h2 className="text-2xl font-bold text-indigo-400 mb-4">4. Practice Platforms</h2>
+            <h2 id='practice-platforms' className="text-2xl font-bold text-indigo-400 mb-4">4. Practice Platforms</h2>
             <p className="mb-4">
               Build your skills by solving math problems and challenges on these platforms.
             </p>
@@ -186,7 +198,7 @@ export default function Math() {
 
           {/* Section: Advanced Topics */}
           <div>
-            <h2 className="text-2xl font-bold text-indigo-400 mb-4">5. Advanced Topics</h2>
+            <h2 id='advanced-topics' className="text-2xl font-bold text-indigo-400 mb-4">5. Advanced Topics</h2>
             <p className="mb-4">
               Explore advanced math topics, such as calculus, linear algebra, and statistics, once you master the basics.
             </p>
@@ -224,6 +236,9 @@ export default function Math() {
             </ul>
           </div>
         </div>
+      </div>
+      <div className='absolute right-0 top-24'>
+        <RightSidebarNav topics={topics} />
       </div>
     </section>
         </>

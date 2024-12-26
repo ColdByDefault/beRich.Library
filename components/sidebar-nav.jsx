@@ -20,7 +20,7 @@ const NavItem = ({ title, items, href, defaultOpen = false }) => {
           border-gray-700 hover:border-blue-950 ${
             isOpen
               ? 'text-white'
-              : 'text-gray-400 hover:bg-blue-800 hover:text-white border-l border-gray-700 hover:border-blue-950'
+              : 'text-gray-400 hover:bg-gray-700 hover:text-white border-l border-gray-700 hover:border-indigo-100'
           }`}
         >
           {title}
@@ -33,8 +33,8 @@ const NavItem = ({ title, items, href, defaultOpen = false }) => {
       ) : (
         <Link href={href}>
           <p className="block p-2 text-sm text-gray-400 rounded-lg border-l 
-          border-gray-700 hover:border-blue-950
-          hover:bg-blue-800 hover:text-white">
+          border-gray-700 hover:border-white
+          hover:bg-gray-800 hover:text-white">
             {title}
           </p>
         </Link>

@@ -10,7 +10,7 @@ export default function Breadcrumb() {
 
   return (
     <nav className="text-gray-500 text-sm">
-      <ul className="flex items-center space-x-2">
+      <ul className="flex items-center space-x-2 style-none">
         <li>
           <IoIosArrowForward />
         </li>

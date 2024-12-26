@@ -3,11 +3,14 @@ import FeatureCard from '@components/feature-card';
 import Image from 'next/image';
 import '@styles/docs.css';
 
+
+
+
 export default function Page() {
   return (
-    <div className='docs-container'>
+    <div>
       <Breadcrumb />
-      <div>
+    <div  className='docs-container'>
         <main>
           {/* Introduction Section */}
           <section>
