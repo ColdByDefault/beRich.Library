@@ -1,12 +1,6 @@
-// Created by ColdByDefault on 23/12/2024
-// COPYRIGHTS 2024 ColdByDefault. All rights reserved.
-// NOT ALLOWED TO BE SHARED, COPIED, OR MODIFIED WITHOUT PERMISSION
-// AnotherProject beRich v3.2.1
-// more info: https://www.coldbydefault.com
-// See Issues
-
 import React from 'react';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import Head from 'next/head'; // Import Next.js Head for managing <head> content
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/next';
 import '@styles/global.css';
 import Navbar from '@components/Navbar';
@@ -22,20 +16,49 @@ export const metadata = {
 const RootLayout = ({ children }) => {
     return (
         <html lang="de">
-            <head>
-                <title>beRich.Library</title>
+            <Head>
+                {/* Primary Meta Tags */}
+                <title>{metadata.title}</title>
+                <meta name="description" content={metadata.description} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="author" content="ColdByDefault" />
+                <meta charSet="UTF-8" />
                 <link rel="icon" href="/favicon.ico" />
-                <meta name="description" content="Digital Library for developers" />
-            </head>
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:title" content={metadata.title} />
+                <meta property="og:description" content={metadata.description} />
+                <meta property="og:image" content="https://berichlibrary.coldbydefault.com/assets/images/logoBlack.png" />
+                <meta property="og:url" content="https://berichlibrary.coldbydefault.com" />
+                <meta property="og:type" content="website" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={metadata.title} />
+                <meta name="twitter:description" content={metadata.description} />
+                <meta name="twitter:image" content="https://berichlibrary.coldbydefault.com/assets/images/logoBlack.png" />
+
+                {/* Additional Meta Tags */}
+                <meta name="keywords" content="digital library, developers, programming resources, coding, beRich.Library" />
+                <link rel="canonical" href="https://berichlibrary.coldbydefault.com" />
+                <meta httpEquiv="Content-Language" content="de/en" />
+                <meta name="robots" content="index, follow" />
+
+                {/* Preconnect for performance */}
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+                <link rel="preconnect" href="https://www.google-analytics.com" />
+
+                {/* Add Fonts */}
+            </Head>
             <body>
                 <Provider>
-
                     <Navbar />
                     <main>
                         {children}
                         <Footer />
                     </main>
-                    <CookiesBanner /> {/* Add the CookiesBanner here */}  
+                    <CookiesBanner />
                 </Provider>
                 <SpeedInsights />
                 <Analytics />

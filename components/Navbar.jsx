@@ -61,7 +61,7 @@ const Navbar = () => {
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
-    { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> },
+    /* { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> }, */
     /* { href: "/gfn", label: "GFN+", icon: <AiOutlineGlobal /> }, */
     /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
   ];
@@ -69,7 +69,7 @@ const Navbar = () => {
   const navLinksGuest = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
-    { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> },
+    /* { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> }, */
   ];
 
   return (
