@@ -8,6 +8,7 @@ import { FaGithub, FaBrain, FaSignOutAlt  } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDocumentScanner } from "react-icons/md";
+import { LuBrainCircuit } from "react-icons/lu";
 
 
 
@@ -60,6 +61,7 @@ const Navbar = () => {
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
+    { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> },
     /* { href: "/gfn", label: "GFN+", icon: <AiOutlineGlobal /> }, */
     /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
   ];
@@ -67,6 +69,7 @@ const Navbar = () => {
   const navLinksGuest = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
+    { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> },
   ];
 
   return (
