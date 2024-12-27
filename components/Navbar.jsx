@@ -79,9 +79,9 @@ const Navbar = () => {
       <div className="flex justify-between items-center max-w-6xl mx-auto">
         <Link href="/" className="flex items-center gap-2 z-10">
           <Image src="/assets/images/logo.png"
-            alt="beRichHub Logo"
-            width={70}
-            height={70}
+            alt="beRichHub"
+            width={80}
+            height={80}
           />
         </Link>
 

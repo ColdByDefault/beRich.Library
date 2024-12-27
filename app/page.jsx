@@ -17,7 +17,7 @@ const Home = () => {
         icon: <VscDebugStart />,
         color: '#9C27B0',
         image: '/assets/images/version1.png',
-        label: 'View Details',
+        label: 'View Source Code',
     },
     {
         status: 'First Deployment',
@@ -26,6 +26,7 @@ const Home = () => {
         icon: <GiBubblingFlask />,
         color: '#673AB7',
         image: '/assets/images/version2.png',
+        label: 'View Website',
     },
     {
         status: 'Next.js Version 3.0',
