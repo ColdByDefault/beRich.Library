@@ -1,35 +1,63 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import Card from '@components/CustomCard';
+import '@styles/timeline.css';
+
 
 const Timeline = ({ events }) => {
+    useEffect(() => {
+        const handleScroll = () => {
+          const timelineCards = document.querySelectorAll('.timeline-card');
+          timelineCards.forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            console.log('Card Rect:', rect); // Debugging
+            if (rect.top < window.innerHeight - 100) {
+              card.classList.add('visible');
+            } else {
+              card.classList.remove('visible'); // Optional: Hide when out of view
+            }
+          });
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+      
+  
     return (
-        <div className="flex flex-col md:flex-row items-center justify-start md:justify-center w-full overflow-x-auto space-y-6 md:space-y-0 md:space-x-8">
-            {events.map((event, index) => (
-                <div key={index} className="flex flex-col items-center md:items-start">
-                    {/* Timeline Marker */}
-                    <div className="flex items-center mb-4">
-                        <div
-                            className="w-10 h-10 flex items-center justify-center rounded-full shadow-lg text-white mb-2 md:mb-0"
-                            style={{ backgroundColor: event.color }}>
-                            <i className={`${event.icon} text-lg`}></i>
-                        </div>
-                        {index < events.length - 1 && (
-                            <div className="hidden md:block w-12 h-1 bg-gray-300 mx-4"></div>
-                        )}
-                    </div>
-
-                    {/* Card Component */}
-                    <Card
-                        title={event.status}
-                        subtitle={event.date}
-                        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                        image={event.image}
-                        buttonLabel="Read More"
-                    />
-                </div>
-            ))}
-        </div>
+      <div className="relative flex flex-col items-center bg-white min-h-screen w-full py-8">
+        {/* Vertical Line */}
+        <div className="absolute w-1 bg-gray-300 h-full left-1/2 transform -translate-x-1/2"></div>
+        {events.map((event, index) => (
+          <div key={index}
+            className={`relative flex items-center w-full max-w-4xl my-6 timeline-card ${
+              index % 2 === 0 ? 'justify-start' : 'justify-end'
+            }`}>
+            {/* Timeline Marker */}
+            <div className="absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg text-white z-10"
+              style={{
+                backgroundColor: event.color,
+                left: '50%',
+                transform: 'translateX(-50%)',
+              }}>
+              {event.icon}
+            </div>
+            {/* Card Component */}
+            <div className={`relative flex items-center w-full max-w-4xl my-2 timeline-card ${
+            index % 2 === 0 ? 'justify-start' : 'justify-end'
+            }`}>
+              <Card
+                title={event.status}
+                subtitle={event.date}
+                description={event.discription}
+                image={event.image}
+                buttonLabel={event.label}/>
+            </div>
+          </div>
+        ))}
+      </div>
     );
-};
-
-export default Timeline;
+  };
+  
+  export default Timeline;
