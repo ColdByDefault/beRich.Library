@@ -36,6 +36,13 @@ const Intro = () => {
               style={{ transform: "translateZ(30px)" }}>
               Quellcode ansehen
             </a>
+            <a href="/beRichHistory"
+              className="bg-black border border-black font-semibold text-gray-500 py-4 px-1 
+              lg:px-6 lg:text-lg text-sm rounded-lg hover:bg-black 
+              hover:text-white transition"
+              style={{ transform: "translateZ(30px)" }}>
+              beRich.History
+            </a>
           </div>
         </div>
       </div>
