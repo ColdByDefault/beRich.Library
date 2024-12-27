@@ -9,6 +9,7 @@ const MyProfile = () => {
     const router = useRouter();
     const [myPosts, setPosts] = useState([]);
     const [userDetails, setUserDetails] = useState({
+        _id: '',
         username: '',
         image: '',
         bio: '',
@@ -44,10 +45,6 @@ const MyProfile = () => {
             }
         };
         
-        
-        
-        
-
         if (session?.user.id) {
             fetchPosts();
             fetchUserDetails();
@@ -85,7 +82,7 @@ const MyProfile = () => {
     return (
         <Profile
             name={userDetails.username || 'My'}
-            desc="Welcome to your personalized profile page"
+            desc={`ID: #${userDetails._id}`}
             image={userDetails.image}
             bio={userDetails.bio} // Add this if bio is used in Profile
             location={userDetails.location} // Add this for location

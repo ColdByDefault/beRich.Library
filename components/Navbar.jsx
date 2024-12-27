@@ -59,8 +59,8 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
-    { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
+    { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
     /* { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> }, */
     /* { href: "/gfn", label: "GFN+", icon: <AiOutlineGlobal /> }, */
     /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
