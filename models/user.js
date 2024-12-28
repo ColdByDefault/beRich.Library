@@ -15,6 +15,11 @@ const userSchema = new Schema({
             "Username invalid, it should contain 8-20 alphanumeric letters and be unique!",
         ],
     },
+    password: {
+        type: String,
+        required: [true, "Password is required"],
+        select: false, // Exclude password from queries by default
+    },
     image: {
         type: String,
         default: "/images/profile.svg",
@@ -32,6 +37,7 @@ const userSchema = new Schema({
         default: "",
     },
 });
+
 
 const User = models.User || model("User", userSchema);
 

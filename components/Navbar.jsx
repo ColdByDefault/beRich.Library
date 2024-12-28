@@ -22,7 +22,7 @@ const SignInButton = ({ providers }) => {
   // Map provider names to icons
   const providerIcons = {
     Google: <FcGoogle className="inline-block" />,
-    GitHub: <FaGithub className="inline-block" />,
+    GitHub: <FaGithub className="inline-block text-white" />,
     // Add other providers and icons as needed
   };
 
