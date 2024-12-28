@@ -1,8 +1,9 @@
 'use client';
+
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { FaGithub, FaBrain, FaSignOutAlt  } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
@@ -22,77 +23,94 @@ const SignIn = () => {
       console.error("Error signing in", error);
     }
   };
-  
 
   const providersIcons = {
-    google: <FcGoogle />,
-    github: <FaGithub />,
+    google: <FcGoogle className="w-5 h-5" />,
+    github: <FaGithub className="w-5 h-5" />,
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 shadow-lg rounded-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
-
-        <form onSubmit={handleEmailSignIn} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-          >
-            Sign In
-          </button>
-        </form>
-
-        <div className="flex items-center justify-between mt-6">
-          <hr className="w-1/4 border-gray-300" />
-          <span className="text-sm text-gray-500">Or sign in with</span>
-          <hr className="w-1/4 border-gray-300" />
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="p-8 shadow-xl rounded-lg w-full max-w-md space-y-8 
+      bg-black backdrop-filter backdrop-blur-lg bg-opacity-30 border border-gray-800">
+        <div>
+          <h1 className="text-3xl font-bold text-center text-white">Sign In</h1>
+          <p className="mt-2 text-center text-sm text-gray-400">
+            Access your account
+          </p>
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          {Object.keys(providersIcons).map((provider) => (
+        <form onSubmit={handleEmailSignIn} className="mt-8 space-y-6">
+          <div className="rounded-md shadow-sm -space-y-px">
+            <div className="mb-4">
+              <label htmlFor="email" className="sr-only">
+                Email address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800"
+                placeholder="Email address"
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm bg-gray-800"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <div>
             <button
-              key={provider}
-              onClick={() => signIn(provider, { callbackUrl: "/" })} // Include callbackUrl
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm 
-              bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              type="submit"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
             >
-              {providersIcons[provider]}
-              <span className="ml-2 capitalize">{provider}</span>
+              Sign In
             </button>
-          ))}
+          </div>
+        </form>
+        <div className="mt-6">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-700"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-2 bg-gray-900 text-gray-400">
+                Or continue with
+              </span>
+            </div>
+          </div>
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {Object.keys(providersIcons).map((provider) => (
+              <button
+                key={provider}
+                onClick={() => signIn(provider, { callbackUrl: "/" })}
+                className="w-full inline-flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm bg-gray-800 text-sm font-medium text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+              >
+                {providersIcons[provider]}
+                <span className="ml-2 capitalize">{provider}</span>
+              </button>
+            ))}
+          </div>
         </div>
-
-
-        <div className="text-sm text-center text-gray-500 mt-6">
+        <div className="text-sm text-center text-gray-400">
           Don't have an account?{" "}
-          <Link href="/auth/signup">
-            <div className="text-blue-500 hover:underline">Sign up</div>
+          <Link href="/auth/signup" className="font-medium text-indigo-400 hover:text-indigo-300 transition-colors duration-200">
+            Sign up
           </Link>
         </div>
       </div>
@@ -101,3 +119,4 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
