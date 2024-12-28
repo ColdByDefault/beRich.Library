@@ -18,14 +18,19 @@ const MyProfile = () => {
     });
 
     useEffect(() => {
-        // Fetch user posts
         const fetchPosts = async () => {
-            const res = await fetch(`/api/users/${session?.user.id}/posts`);
-            const data = await res.json();
-            setPosts(data);
+            try {
+                const res = await fetch(`/api/users/${session?.user.id}/posts`);
+                if (!res.ok) {
+                    throw new Error(`Failed to fetch posts: ${res.statusText}`);
+                }
+                const data = await res.json();
+                setPosts(data);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
         };
 
-        // Fetch user details
         const fetchUserDetails = async () => {
             if (session?.user.id) {
                 try {
@@ -33,18 +38,16 @@ const MyProfile = () => {
                         method: 'GET',
                     });
                     if (!res.ok) {
-                        console.error('Error fetching user details:', res.status, res.statusText);
-                        return;
+                        throw new Error(`Failed to fetch user details: ${res.statusText}`);
                     }
-        
                     const data = await res.json();
-                    setUserDetails(data || {}); // Ensure userDetails is always an object
+                    setUserDetails(data || {});
                 } catch (error) {
                     console.error('Error fetching user details:', error);
                 }
             }
         };
-        
+
         if (session?.user.id) {
             fetchPosts();
             fetchUserDetails();
@@ -60,10 +63,9 @@ const MyProfile = () => {
                 },
                 body: JSON.stringify(updatedData),
             });
-    
+
             if (res.ok) {
-                // Re-fetch user details after a successful update
-                await fetchUserDetails(); // Call the function to refresh user details
+                await fetchUserDetails();
                 alert('Profile updated successfully!');
             } else {
                 alert('Failed to update profile.');
@@ -72,13 +74,10 @@ const MyProfile = () => {
             console.error('Error updating profile:', error);
         }
     };
-    
-    
 
     const handleEdit = (post) => {
         router.push(`/update-prompt?id=${post._id}`);
     };
-
 
     const handleDelete = async (post) => {
         const hasConfirmed = confirm("Are you sure you want to delete this prompt?");
@@ -104,15 +103,14 @@ const MyProfile = () => {
             name={userDetails.username || 'My'}
             desc={`ID: #${userDetails._id}`}
             image={userDetails.image}
-            bio={userDetails.bio} // Add this if bio is used in Profile
-            location={userDetails.location} // Add this for location
-            website={userDetails.website} // Add this for website
+            bio={userDetails.bio}
+            location={userDetails.location}
+            website={userDetails.website}
             data={myPosts}
             handleEdit={handleEdit}
             onUpdate={handleUpdate}
             handleDelete={handleDelete}
         />
-
     );
 };
 

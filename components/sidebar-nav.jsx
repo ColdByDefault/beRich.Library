@@ -17,17 +17,14 @@ export default function SidebarNav() {
   };
 
   return (
-    <nav
-      className="w-64 p-4 border-r border-gray-700 bg-black backdrop-filter backdrop-blur-lg bg-opacity-30
-    shadow-lg h-screen overflow-y-auto"
-    >
+    <nav className="w-64 p-4 border-r border-gray-700 bg-black backdrop-filter 
+    backdrop-blur-lg bg-opacity-30
+    shadow-lg h-screen overflow-y-auto">
       <div>
         <Link href="/docs">
-          <div
-            className="flex items-center gap-2 mt-2 pb-2 text-lg font-semibold text-white border-b 
-            border-gray-700
-            hover:text-slate-400"
-          >
+          <div className="flex items-center gap-2 mt-2 pb-2 text-lg font-semibold 
+          text-white
+          hover:text-slate-400">
             <SiReadthedocs />
             <span>ALL DOCS </span>
           </div>
@@ -73,10 +70,10 @@ const NavItem = ({ title, items, href, isOpen, toggleOpen, parentKey, openItems,
       {items && items.length > 0 ? (
         <button
           onClick={toggleOpen}
-          className={`flex items-center justify-between w-full p-2 text-sm font-medium rounded-lg border-l border-gray-700 hover:border-blue-950 ${
+          className={`flex items-center justify-between w-full p-2 text-sm font-medium rounded-lg ${
             isOpen
               ? 'text-white'
-              : 'text-gray-400 hover:bg-gray-700 hover:text-white border-l border-gray-700 hover:border-indigo-100'
+              : 'text-gray-400 hover:text-white'
           }`}
         >
           {title}
@@ -88,7 +85,7 @@ const NavItem = ({ title, items, href, isOpen, toggleOpen, parentKey, openItems,
         </button>
       ) : (
         <Link href={href}>
-          <p className="block p-2 text-sm text-gray-400 rounded-lg border-l border-gray-700 hover:border-white hover:bg-gray-800 hover:text-white">
+          <p className="block p-2 text-sm text-gray-400 rounded-lg hover:text-white">
             {title}
           </p>
         </Link>
@@ -113,7 +110,7 @@ const NavItem = ({ title, items, href, isOpen, toggleOpen, parentKey, openItems,
               />
             ) : (
               <Link href={item.href}>
-                <p className="block p-2 text-sm text-gray-400 hover:text-white border-l border-gray-700 rounded-xl hover:border-blue-950">
+                <p className="block p-2 text-sm text-gray-400 hover:text-white">
                   {item.title}
                 </p>
               </Link>

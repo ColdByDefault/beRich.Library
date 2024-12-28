@@ -13,7 +13,7 @@ import { LuBrainCircuit } from "react-icons/lu";
 
 
 const NavLink = ({ href, children, onClick }) => (
-  <Link href={href} className="navbar-btn rounded-full" onClick={onClick}>
+  <Link href={href} className="rounded-full" onClick={onClick}>
     {children}
   </Link>
 );
@@ -34,7 +34,7 @@ const SignInButton = ({ providers }) => {
           <button
             key={provider.name}
             onClick={() => signIn(provider.id)}
-            className="navbar-btn rounded-full flex justify-center items-center px-2">
+            className="rounded-full flex justify-center items-center px-2">
             {providerIcons[provider.name]} {/* Display the icon */}
           </button>
         ))}
@@ -105,7 +105,8 @@ const Navbar = () => {
               </Link>
               <button type="button"
                 onClick={() => signOut()}
-                className="navbar-btn navbar-btn2 rounded-full p-2">
+                className="text-white 
+                p-2 hover:text-gray-500">
                 <FaSignOutAlt className="text-xl"/>
               </button>
             </>
@@ -123,7 +124,7 @@ const Navbar = () => {
                 providers={providers}
                 showDropdown={showProviderDropdown}
                 setShowDropdown={setShowProviderDropdown}
-                className="navbar-btn"/>
+                className="text-white hover:text-gray-500"/>
             </>
           )}
         </div>
@@ -134,7 +135,8 @@ const Navbar = () => {
         </button>
       </div>
       {showMobileMenu && (
-        <div className="sm:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md shadow-lg p-4 z-20 flex flex-col gap-3">
+        <div className="sm:hidden absolute top-full left-0 right-0 bg-black/90 text-white
+        backdrop-blur-md shadow-lg p-4 z-20 flex flex-col gap-3">
           {session?.user ? (
             <>
               {navLinks.map((link) => (
@@ -151,7 +153,7 @@ const Navbar = () => {
                     alt="Profile"
                     width={30}
                     height={30}
-                    className="rounded-full"
+                    className="rounded-full border"
                   />
                 </NavLink>
                 <button type="button"
@@ -159,7 +161,7 @@ const Navbar = () => {
                     signOut();
                     setShowMobileMenu(false);
                   }}
-                  className="navbar-btn navbar-btn2 rounded-full text-left">
+                  className="rounded-full text-left text-white hover:text-gray-500">
                   <FaSignOutAlt />
                 </button>
               </div>

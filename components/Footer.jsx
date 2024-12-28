@@ -8,7 +8,7 @@ import { SiWakatime } from "react-icons/si";
 
 function Footer() {
     return (
-    <footer className="bg-black backdrop-filter backdrop-blur-lg bg-opacity-30
+    <footer className="bg-black backdrop-filter backdrop-blur-lg bg-opacity-30 border-t border-gray-900
     shadow-lg">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
