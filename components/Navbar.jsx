@@ -7,9 +7,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDocumentScanner } from "react-icons/md";
 import { signOut, useSession } from "next-auth/react";
 import { FaBrain, FaSignOutAlt  } from "react-icons/fa";
-
-
-import { LuBrainCircuit } from "react-icons/lu";
+import { VscSignIn } from "react-icons/vsc";
 
 
 
@@ -71,18 +69,19 @@ const Navbar = () => {
               </NavLink>
               ))}
               <Link href="/profile">
-                <Image src={session.user.image}
+                <Image src={session.user.image || "/assets/images/profile.svg"}
                   alt="Profile"
                   width={30}
                   height={30}
                   className="rounded-full"/>
               </Link>
-              <button type="button"
-                onClick={() => signOut()}
-                className="text-white 
-                p-2 hover:text-gray-500">
-                <FaSignOutAlt className="text-xl"/>
+              <button
+                type="button"
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="text-white p-2 hover:text-gray-500">
+                <FaSignOutAlt className="text-xl" />
               </button>
+
             </>
           ) : (
             <>
@@ -96,9 +95,9 @@ const Navbar = () => {
               ))}
               <Link
               href="/auth/signin"
-              className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full"
+              className="px-1 py-2 "
               onClick={() => setShowMobileMenu(false)}>
-                Sign In
+              <span className="flex gap-2 items-center text-white hover:text-gray-600">Sign-In<VscSignIn /></span>
               </Link>
             </>
           )}
@@ -124,21 +123,19 @@ const Navbar = () => {
               ))}
               <div className="flex gap-2">
                 <NavLink href="/profile" onClick={() => setShowMobileMenu(false)} className="block my-2">
-                  <Image src={session.user.image}
+                  <Image src={session.user.image || "/assets/images/profile.svg"}
                     alt="Profile"
                     width={30}
                     height={30}
                     className="rounded-full border"
                   />
                 </NavLink>
-                <button type="button"
-                  onClick={() => {
-                    signOut();
-                    setShowMobileMenu(false);
-                  }}
-                  className="rounded-full text-left text-white hover:text-gray-500">
-                  <FaSignOutAlt />
-                </button>
+                <button
+                    type="button"
+                    onClick={() => signOut({ callbackUrl: "/" })}
+                    className="text-white p-2 hover:text-gray-500">
+                    <FaSignOutAlt className="text-xl" />
+                  </button>
               </div>
             </>
           ) : (
@@ -151,9 +148,9 @@ const Navbar = () => {
               </NavLink>
               <Link
               href="/auth/signin"
-              className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full"
+              className="px-1 py-2 "
               onClick={() => setShowMobileMenu(false)}>
-                Sign In
+              <span className="flex gap-2 items-center text-white hover:text-gray-600">Sign-In<VscSignIn /></span>
               </Link>
             </>
           )}

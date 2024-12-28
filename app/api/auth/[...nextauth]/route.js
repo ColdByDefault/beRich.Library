@@ -25,13 +25,18 @@ const handler = NextAuth({
             async authorize(credentials) {
                 await connectToDatabase();
 
-                // Find the user by email
+                // Ensure credentials are passed
+                if (!credentials.email || !credentials.password) {
+                    throw new Error("Email and password are required.");
+                }
+
+                // Find the user in the database
                 const user = await User.findOne({ email: credentials.email }).select("+password");
                 if (!user) {
                     throw new Error("No user found with this email.");
                 }
 
-                // Compare the provided password with the stored hashed password
+                // Compare provided password with stored hash
                 const isPasswordCorrect = await bcrypt.compare(credentials.password, user.password);
                 if (!isPasswordCorrect) {
                     throw new Error("Invalid email or password.");
@@ -42,32 +47,34 @@ const handler = NextAuth({
         }),
     ],
     callbacks: {
-        async session({ session, token }) {
+        async redirect({ url, baseUrl }) {
+            return url.startsWith(baseUrl) ? url : baseUrl; // Redirect to the main page if no specific URL is set
+        },
+        async session({ session }) {
             const sessionUser = await User.findOne({ email: session.user.email });
             session.user.id = sessionUser._id.toString();
             return session;
         },
-        async signIn({ profile }) {
-            try {
-                await connectToDatabase();
-                const userExists = await User.findOne({ email: profile.email });
-                if (!userExists) {
-                    await User.create({
-                        email: profile.email,
-                        username: profile.name.replace(" ", "").toLowerCase(),
-                        image: profile.picture,
-                    });
+        async signIn({ account, profile }) {
+            if (account.provider === "google" || account.provider === "github") {
+                try {
+                    await connectToDatabase();
+                    const userExists = await User.findOne({ email: profile.email });
+                    if (!userExists) {
+                        await User.create({
+                            email: profile.email,
+                            username: profile.name.replace(" ", "").toLowerCase(),
+                            image: profile.picture,
+                        });
+                    }
+                } catch (error) {
+                    console.error("Error during OAuth sign-in:", error.message);
+                    return false;
                 }
-                return true;
-            } catch (error) {
-                console.log("Error connecting to database", error);
-                return false;
             }
+            return true;
         },
-        async redirect({ url, baseUrl }) {
-            return url.startsWith(baseUrl) ? url : baseUrl;
-        },
-    },
+    },    
 });
 
 export { handler as GET, handler as POST };

@@ -22,6 +22,7 @@ const SignIn = () => {
       console.error("Error signing in", error);
     }
   };
+  
 
   const providersIcons = {
     google: <FcGoogle />,
@@ -74,16 +75,20 @@ const SignIn = () => {
           <hr className="w-1/4 border-gray-300" />
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3">
-            {Object.keys(providersIcons).map((provider) => (
-              <button
-                key={provider}
-                className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm 
-                bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-                {providersIcons[provider]}
-                <span className="ml-2 capitalize">{provider}</span>
-              </button>
-            ))}
+          {Object.keys(providersIcons).map((provider) => (
+            <button
+              key={provider}
+              onClick={() => signIn(provider, { callbackUrl: "/" })} // Include callbackUrl
+              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm 
+              bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+            >
+              {providersIcons[provider]}
+              <span className="ml-2 capitalize">{provider}</span>
+            </button>
+          ))}
         </div>
+
+
         <div className="text-sm text-center text-gray-500 mt-6">
           Don't have an account?{" "}
           <Link href="/auth/signup">
