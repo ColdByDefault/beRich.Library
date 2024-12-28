@@ -3,11 +3,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { FaGithub, FaBrain, FaSignOutAlt  } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineDocumentScanner } from "react-icons/md";
+import { signOut, useSession } from "next-auth/react";
+import { FaBrain, FaSignOutAlt  } from "react-icons/fa";
+
+
 import { LuBrainCircuit } from "react-icons/lu";
 
 
@@ -18,35 +19,12 @@ const NavLink = ({ href, children, onClick }) => (
   </Link>
 );
 
-const SignInButton = ({ providers }) => {
-  // Map provider names to icons
-  const providerIcons = {
-    Google: <FcGoogle className="inline-block" />,
-    GitHub: <FaGithub className="inline-block text-white" />,
-    // Add other providers and icons as needed
-  };
 
-  return (
-    <div className="flex gap-2">
-      <span className="text-white">Sign in with</span>
-      {providers &&
-        Object.values(providers).map((provider) => (
-          <button
-            key={provider.name}
-            onClick={() => signIn(provider.id)}
-            className="rounded-full flex justify-center items-center px-2">
-            {providerIcons[provider.name]} {/* Display the icon */}
-          </button>
-        ))}
-    </div>
-  );
-};
 
 
 const Navbar = () => {
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
-  const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
@@ -61,15 +39,11 @@ const Navbar = () => {
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
     { href: "/create-prompt", label: "AI Prompts", icon: <FaBrain /> },
-    /* { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> }, */
-    /* { href: "/gfn", label: "GFN+", icon: <AiOutlineGlobal /> }, */
-    /* { href: "/profile", label: "Profile", icon: <AiOutlineUser /> }, */
   ];
 
   const navLinksGuest = [
     { href: "/", label: "Home", icon: <AiOutlineHome /> },
     { href: "/docs", label: "Library", icon: <MdOutlineDocumentScanner /> },
-    /* { href: "/beRichGPT", label: "beRichGPT", icon: <LuBrainCircuit  /> }, */
   ];
 
   return (
@@ -120,11 +94,12 @@ const Navbar = () => {
                   </div>
                 </NavLink>
               ))}
-              <SignInButton
-                providers={providers}
-                showDropdown={showProviderDropdown}
-                setShowDropdown={setShowProviderDropdown}
-                className="text-white hover:text-gray-500"/>
+              <Link
+              href="/auth/signin"
+              className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full"
+              onClick={() => setShowMobileMenu(false)}>
+                Sign In
+              </Link>
             </>
           )}
         </div>
@@ -174,10 +149,12 @@ const Navbar = () => {
               <NavLink href="/docs" onClick={() => setShowMobileMenu(false)}>
                 Library
               </NavLink>
-              <SignInButton
-                providers={providers}
-                showDropdown={showProviderDropdown}
-                setShowDropdown={setShowProviderDropdown}/>
+              <Link
+              href="/auth/signin"
+              className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-full"
+              onClick={() => setShowMobileMenu(false)}>
+                Sign In
+              </Link>
             </>
           )}
         </div>
