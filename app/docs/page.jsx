@@ -27,7 +27,7 @@ export default function Page() {
               <div className="w-full h-52 flex justify-center items-center mb-4">
                 <Image src="/assets/images/library.png" width={400} height={400} alt="Folder Icon" />
               </div>
-              <h2>beRich</h2>
+              <h4 className='text-sm text-gray-600'>"You can do anything you set your mind to"</h4>
             </div>
           </section>
           {/* Description Section */}

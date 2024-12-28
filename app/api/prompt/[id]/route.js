@@ -42,3 +42,22 @@ export const PATCH = async (request, { params }) => {
     }
 };
 
+export const DELETE = async (request, { params }) => {
+    try {
+        await connectToDatabase();
+
+        const { id } = await params; // Await the params object
+        const existingPrompt = await Prompt.findById(id);
+
+        if (!existingPrompt) {
+            return new Response("Prompt not found", { status: 404 });
+        }
+
+        await Prompt.deleteOne({ _id: id }); // Use deleteOne to remove the document
+
+        return new Response("Prompt deleted successfully", { status: 200 });
+    } catch (error) {
+        console.error("DELETE Error:", error);
+        return new Response("Error Deleting Prompt", { status: 500 });
+    }
+};
