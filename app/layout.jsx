@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/next';
 import '@styles/global.css';
 import Navbar from '@components/Navbar';
-import Provider from '@components/Provider';
 import CookiesBanner from '@components/CookiesBanner';
 import Footer from '@components/Footer';
 
@@ -52,14 +51,12 @@ const RootLayout = ({ children }) => {
                 {/* Add Fonts */}
             </Head>
             <body>
-                <Provider>
-                    <Navbar />
-                    <main>
-                        {children}
-                        <Footer />
-                    </main>
-                    <CookiesBanner />
-                </Provider>
+                <Navbar />
+                <main>
+                    {children}
+                    <Footer />
+                </main>
+                <CookiesBanner />
                 <SpeedInsights />
                 <Analytics />
             </body>

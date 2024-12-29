@@ -11,21 +11,21 @@
 }
 /* Customize the scrollbar */
 ::-webkit-scrollbar {
-  width: 8px; /* Adjust the width of the scrollbar */
-  height: 8px; /* Adjust the height of the scrollbar */
+  width: 8px; 
+  height: 8px; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(8, 8, 8); /* Set scrollbar color */
-  border-radius: 4px; /* Round edges */
+  background: rgb(8, 8, 8); 
+  border-radius: 4px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(0, 0, 0); /* Change color on hover */
+  background: rgb(0, 0, 0); 
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(36, 35, 35); /* Track background color */
+  background: rgb(36, 35, 35); 
 }
 
 /* Body and main in app/layout.js */
@@ -35,7 +35,7 @@ body {
   height: auto;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(225deg, rgba(0,0,0,1) 10%, rgb(10, 10, 10) 50%, rgba(0,0,0,1) 90%);
+  background: rgba(0, 0, 0, 0.904);
 }
 
 .line {
@@ -94,7 +94,7 @@ body {
 }
 
 /* Control btns Submit & Cancel */
-.submitt-btn {
+/* .submitt-btn {
   color: rgb(255, 255, 255);
   text-decoration: none;
   font-weight: 600;
@@ -130,26 +130,7 @@ body {
 }
 .cancel-btn::after, .cancel-btn::before {
   background: #c2414c;
-}
-
-
-
-
-
-
-.test-colors{
-  color: #c0c0c0b7;
-}
-
-
-
-
-
-
-
-
-
-
+} */
 
 /* Container for all steps */
 .steps-container {
